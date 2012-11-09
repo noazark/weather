@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0">
+  <link rel="stylesheet" href="css/mocha.css" />
+  <script src="js/sugar.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mockjax.js"></script>
+  <script src="js/sinon.js"></script>
+  <script src="js/expect.js"></script>
+  <script src="js/mocha.js"></script>
+  <script>mocha.setup('tdd')</script>
+</head>
+<body>
+  <div id="mocha"></div>
+  <h1 id="weather"></h1>
+  <script src="../weather.js"></script>
+  <script src="weather/converters.js"></script>
+  <script src="weather/forecast.js"></script>
+  <script src="weather/current.js"></script>
+  <script>
+    $(function() {
+      Weather.getCurrent('Kansas City', function(current) {
+        $('#weather').text(Weather.kelvinToFahrenheit(current.temperature()).toFixed() + '° and ' + current.conditions());
+      });
+
+      mocha.setup({
+        ignoreLeaks: true
+      });
+
+      mocha.run();
+    });
+  </script>
+</body>
+</html>

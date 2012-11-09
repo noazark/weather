@@ -1,0 +1,36 @@
+{
+    "name": "weather",
+    "version": "0.0.1",
+    "description": "",
+    "homepage": "http://weatherjs.com",
+    "author": "Noah H. Smith <noah@batteredoats.com> (http://noazark.github.com/)",
+    "keywords": [
+        "weather"
+    ],
+    "engines": {
+        "node": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/noazark/weather.git"
+    },
+    "bugs": {
+        "url": "https://github.com/noazark/weather/issues"
+    },
+    "licenses" : [
+        {
+            "type" : "MIT"
+        }
+    ],
+    "devDependencies" : {
+        "sugar" : "latest",
+        "coffee-script"  : "latest",
+        "uglify-js" : "latest",
+        "mocha"  : "latest",
+        "expect.js"  : "latest",
+        "nock" : "latest"
+    },
+    "scripts": {
+        "test": "make test"
+    }
+}
