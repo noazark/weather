@@ -1,4 +1,3 @@
-VERSION = "0.0.1"
 isModule = (typeof module isnt "undefined" and module.exports)
 
 if isModule
@@ -7,6 +6,8 @@ if isModule
   URL = require('url')
 
 class Weather
+  @VERSION: "0.0.1"
+
   @kelvinToFahrenheit: (value) ->
     (@kelvinToCelsius(value) * 1.8) + 32
 
