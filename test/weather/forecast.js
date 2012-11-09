@@ -20,9 +20,9 @@ describe("Forecast", function() {
         log: null,
         url: 'http://openweathermap.org/data/2.1/forecast/city?*',
         status: 200,
-        response: function(a) {
+        response: function(request) {
           //trigger callback... because it's JSONP
-          a.success()
+          request.success()
         }
       });
     }
