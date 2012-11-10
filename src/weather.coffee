@@ -15,11 +15,11 @@ class Weather
     value - 273.15
 
   @getCurrent: (city, callback) ->
-    @_getJSON "http://openweathermap.org/data/2.1/find/city?q=#{city}&cnt=1", (data) =>
+    @_getJSON "http://openweathermap.org/data/2.1/find/city?q=#{encodeURIComponent city}&cnt=1", (data) =>
       callback new Weather.Current(data)
 
   @getForecast: (city, callback) ->
-    @_getJSON "http://openweathermap.org/data/2.1/forecast/city?q=#{city}&cnt=1", (data) =>
+    @_getJSON "http://openweathermap.org/data/2.1/forecast/city?q=#{encodeURIComponent city}&cnt=1", (data) =>
       callback new Weather.Forecast(data)
 
   #
