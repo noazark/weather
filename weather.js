@@ -26,14 +26,14 @@
 
     Weather.getCurrent = function(city, callback) {
       var _this = this;
-      return this._getJSON("http://openweathermap.org/data/2.1/find/city?q=" + city + "&cnt=1", function(data) {
+      return this._getJSON("http://openweathermap.org/data/2.1/find/city?q=" + (encodeURIComponent(city)) + "&cnt=1", function(data) {
         return callback(new Weather.Current(data));
       });
     };
 
     Weather.getForecast = function(city, callback) {
       var _this = this;
-      return this._getJSON("http://openweathermap.org/data/2.1/forecast/city?q=" + city + "&cnt=1", function(data) {
+      return this._getJSON("http://openweathermap.org/data/2.1/forecast/city?q=" + (encodeURIComponent(city)) + "&cnt=1", function(data) {
         return callback(new Weather.Forecast(data));
       });
     };
