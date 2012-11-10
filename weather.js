@@ -14,7 +14,7 @@
 
     function Weather() {}
 
-    Weather.VERSION = "0.0.1";
+    Weather.VERSION = "0.0.2";
 
     Weather.kelvinToFahrenheit = function(value) {
       return (this.kelvinToCelsius(value) * 1.8) + 32;
