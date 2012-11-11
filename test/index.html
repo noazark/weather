@@ -24,7 +24,8 @@
   <script>
     $(function() {
       Weather.getCurrent('Kansas City', function(current) {
-        $('#weather').text(Weather.kelvinToFahrenheit(current.temperature()).toFixed() + '° and ' + current.conditions());
+        $('#weather .conditions').text(Weather.kelvinToFahrenheit(current.temperature()).toFixed() + '° and ' + current.conditions());
+        $('#weather i').addClass('icon-' + current.data.list[0].weather[0].id)
       });
 
       mocha.setup({
