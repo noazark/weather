@@ -3,6 +3,8 @@ body {
   font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 60px 50px;
   padding-bottom: 0;
+  color: #262626;
+  background-color: #efefef;
 }
 
 #mocha ul, #mocha li {
@@ -75,7 +77,7 @@ body {
   display: block;
   float: left;
   margin-right: 5px;
-  color: #00d6b2;
+  color: green;
 }
 
 #mocha .test.pass .duration {
@@ -134,8 +136,9 @@ body {
   font: 12px/1.5 monaco, monospace;
   margin: 5px;
   padding: 15px;
-  border: 1px solid #eee;
-  border-bottom-color: #ddd;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-bottom-color: #bbb;
   -webkit-border-radius: 3px;
   -webkit-box-shadow: 0 1px 3px #eee;
   -moz-border-radius: 3px;
