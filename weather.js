@@ -84,15 +84,16 @@
         callback = options;
         options = {};
       }
-      return getJSON("weather", merge({
+      options = merge({
         cnt: 1
-      }, this.options, options, (function(_this) {
+      }, this.options, options);
+      return getJSON("weather", options, (function(_this) {
         return function(data) {
           if (typeof callback === 'function') {
             return callback(new Weather.Current(data));
           }
         };
-      })(this)));
+      })(this));
     };
 
     Request.prototype.getForecast = function(options, callback) {
@@ -103,13 +104,14 @@
         callback = options;
         options = {};
       }
-      return getJSON("forecast", merge(this.options, options, (function(_this) {
+      options = merge(this.options, options);
+      return getJSON("forecast", options, (function(_this) {
         return function(data) {
           if (typeof callback === 'function') {
             return callback(new Weather.Forecast(data));
           }
         };
-      })(this)));
+      })(this));
     };
 
     getJSON = function(uri, options, callback) {

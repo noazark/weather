@@ -45,7 +45,8 @@ class Weather.Request
       callback = options
       options = {}
 
-    getJSON "weather", merge {cnt: 1}, @options, options, (data) =>
+    options = merge {cnt: 1}, @options, options
+    getJSON "weather", options, (data) =>
       if typeof callback is 'function' then callback new Weather.Current(data)
 
   getForecast: (options = {}, callback) ->
@@ -53,7 +54,8 @@ class Weather.Request
       callback = options
       options = {}
 
-    getJSON "forecast", merge @options, options, (data) =>
+    options = merge @options, options
+    getJSON "forecast", options, (data) =>
       if typeof callback is 'function' then callback new Weather.Forecast(data)
 
   #
@@ -76,7 +78,7 @@ class Weather.Request
       xhr = $.ajax {url: url, dataType: "jsonp"}
       xhr.done callback
       xhr.fail (jqXHR) ->
-          if console then console.error jqXHR
+        if console then console.error jqXHR
 
 class Weather.Forecast
   constructor: (@data) ->
