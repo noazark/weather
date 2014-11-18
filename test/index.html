@@ -2,9 +2,9 @@
 <head>
   <meta charset="utf-8">
   <title>Mocha Tests</title>
-  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-cache"/>
   <meta http-equiv="expires" content="0">
-  <link rel="stylesheet" href="css/mocha.css" />
+  <link rel="stylesheet" href="css/mocha.css"/>
   <script src="js/sugar.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/jquery.mockjax.js"></script>
@@ -15,17 +15,28 @@
 </head>
 <body>
   <h1>Weather.js</h1>
+
   <div id="mocha"></div>
-  <h2 id="weather"><i></i><span class="conditions"></span></h2>
+  <h2 id="weather"><span class="conditions"></span></h2>
+
+  <h2 id="weather-france"><span class="conditions"></span></h2>
   <script src="../weather.js"></script>
   <script src="weather/converters.js"></script>
   <script src="weather/forecast.js"></script>
   <script src="weather/current.js"></script>
   <script>
-    $(function() {
-      Weather.getCurrent('Kansas City', function(current) {
-        $('#weather .conditions').text(Weather.kelvinToFahrenheit(current.temperature()).toFixed() + '° and ' + current.conditions());
-        $('#weather i').addClass('icon-' + current.data.list[0].weather[0].id)
+    $(function () {
+
+      Weather.byCity('Kansas city').getCurrent(function (current) {
+        $('#weather').find('.conditions')
+            .text('Kansas city : ' + Weather.kelvinToFahrenheit(current.data.main.temp).toFixed() + '°F and ' + current.getConditions())
+            .prepend($('<img>').attr('src', current.getIcon()));
+      });
+
+      Weather.byCity('Montpellier,fr').getCurrent({lang: 'fr'}, function (current) {
+        $('#weather-france').find('.conditions')
+            .text('Montpellier, France : ' + Weather.kelvinToCelsius(current.data.main.temp).toFixed() + '°C et ' + current.getConditions())
+            .prepend($('<img>').attr('src', current.getIcon()));
       });
 
       mocha.setup({

@@ -5,9 +5,9 @@ if(isModule) {
   expect = require('expect.js')
   Weather = require('../../weather')
   nock = require('nock')
-  nock('http://openweathermap.org')
+  nock('http://api.openweathermap.org')
     .filteringPath(/q=[^&]*/g, 'q=Kansas%20City')
-    .get('/data/2.1/forecast/city?q=Kansas%20City&cnt=1')
+    .get('/data/2.5/forecast?q=Kansas%20City&cnt=1')
     .reply(200);
 }
 
@@ -18,11 +18,11 @@ describe("Forecast", function() {
     if(!isModule) {
       $.mockjax({
         log: null,
-        url: 'http://openweathermap.org/data/2.1/forecast/city?*',
+        url: 'http://api.openweathermap.org/data/2.5/forecast?*',
         status: 200,
         response: function(request) {
           //trigger callback... because it's JSONP
-          request.success()
+          request.success && request.success()
         }
       });
     }
@@ -54,7 +54,7 @@ describe("Forecast", function() {
   })
 
   it("creates a `Forecast`", function(done) {
-    Weather.getForecast('Kansas City', function(forecast) {
+    Weather.byCity("Kansas City").getForecast(function(forecast) {
       expect(forecast).to.be.a(Weather.Forecast)
       done();
     });

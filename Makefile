@@ -8,7 +8,7 @@ weather.js:
 	node_modules/.bin/coffee -c -o ./ src/weather	
 
 weather.min.js: weather.js
-	node_modules/.bin/uglifyjs -o $@ $<
+	node_modules/.bin/uglifyjs -m -o $@ $<
 
 .PHONY: test
 

@@ -14,6 +14,7 @@ Weather.js is still in early development so expect changes and please
 contribute! Among the features I hope to incorporate:
 
 -   historical weather information
+-   API find method to get city informations
 -   API key usage
 -   more data sources
 -   more conversions!
@@ -37,20 +38,78 @@ possible.
 
 At the moment you can access the current weather conditions and the
 forecast for any city. By default it will use the closest match as
-returned by Open Weather Map.
+returned by Open Weather Map. You can specify the city's contry, like : 
+"London,us" and "London,gb".
+
+### Current conditions
+
+The data format is specified here : http://openweathermap.org/weather-data#current .
 
 ```javascript
-Weather.getCurrent("Kansas City", function(current) {
-  console.log(
-    ["currently:",current.temperature(),"and",current.conditions()].join(" ")
-  );
-});
-
-Weather.getForecast("Kansas City", function(forecast) {
-  console.log("forecast high: " + forecast.high());
-  console.log("forecast low: " + forecast.low());
+Weather.byCity("Kansas City").getCurrent(function(current) {
+    console.log(current);
+    console.log(current.getConditions(), current.getIcon());
 });
 ```
+
+### Forecast
+
+The data format is specified here : http://openweathermap.org/weather-data#5days .
+
+```javascript
+Weather.bylatLng("43.000351", "-75.499901").getForecast(function(forecast) {
+    console.log(forecast);
+    console.log("forecast high: " + forecast.high());
+    console.log("forecast low: " + forecast.low());
+});
+```
+
+### Options
+
+You can use some options, globally or for each function call.
+
+#### Globally
+
+```javascript
+// http://openweathermap.org/appid
+Weather.options.APPID = "1111111111";
+
+// http://openweathermap.org/current#other
+Weather.options.searchType = "accurate";
+
+// http://openweathermap.org/current#multi
+Weather.options.lang = "fr";
+
+// http://openweathermap.org/current#data
+Weather.options.unit = "metric"; 
+```
+
+#### Per function
+
+```javascript
+Weather.byCity('Montpellier,fr').getCurrent({lang: 'fr'}, function (current) { });
+```
+
+## Usage example
+
+```javascript
+Weather.byCity('Kansas city').getCurrent(function (current) {
+  $('#weather').find('.conditions')
+      .text('Kansas city : ' + Weather.kelvinToFahrenheit(current.data.main.temp).toFixed() + '°F and ' + current.getConditions())
+      .prepend($('<img>').attr('src', current.getIcon()))
+  ;
+});
+
+//French city conditions request
+Weather.byCity('Montpellier,fr').getCurrent({lang: 'fr'}, function (current) {
+  $('#weather-france').find('.conditions')
+      .text('Montpellier, France : ' + Weather.kelvinToCelsius(current.data.main.temp).toFixed() + '°C et ' + current.getConditions())
+      .prepend($('<img>').attr('src', current.getIcon()))
+  ;
+});
+```
+
+# Links
 
 [openweathermap.org]: http://openweathermap.org
 [Weather.js]: http://github.com/noazark/weather
