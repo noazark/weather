@@ -39,7 +39,7 @@ possible.
 At the moment you can access the current weather conditions and the
 forecast for any city. By default it will use the closest match as
 returned by Open Weather Map. You can specify the city's contry, like : 
-"London,us" and "London,gb".
+"London,ca" and "London,gb".
 
 ### Current conditions
 
@@ -75,7 +75,7 @@ You can use some options, globally or for each function call.
 Weather.options.APPID = "1111111111";
 
 // http://openweathermap.org/current#other
-Weather.options.searchType = "accurate";
+Weather.options.type = "accurate";
 
 // http://openweathermap.org/current#multi
 Weather.options.lang = "fr";

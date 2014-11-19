@@ -20,10 +20,10 @@ class Weather
   @options = {}
 
   @kelvinToFahrenheit: (value) ->
-    (@kelvinToCelsius(value) * 1.8) + 32
+    ((@kelvinToCelsius(value) * 1.8) + 32).toFixed(2)
 
   @kelvinToCelsius: (value) ->
-    value - 273.15
+    (value - 273.15).toFixed(2)
 
   @iconUrl: (icon) ->
     @imgUrl + icon + ".png"
@@ -127,6 +127,18 @@ class Weather.Forecast
 
 class Weather.Current
   constructor: (@data) ->
+
+  getSunrise: () ->
+    new Date(@data.sys.sunrise * 1000)
+
+  getSunset: () ->
+    new Date(@data.sys.sunset * 1000)
+
+  getLocation: () ->
+    @data.name + ", " + @data.sys.country
+
+  getMapLink: () ->
+    "http://openweathermap.org/Maps?zoom=12&lat=" + @data.coord.lat + "&lon=" + @data.coord.lon + "&layers=B0FTTFF"
 
   getConditions: () ->
     @data.weather[0].description

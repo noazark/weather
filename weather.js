@@ -35,11 +35,11 @@
     Weather.options = {};
 
     Weather.kelvinToFahrenheit = function(value) {
-      return (this.kelvinToCelsius(value) * 1.8) + 32;
+      return ((this.kelvinToCelsius(value) * 1.8) + 32).toFixed(2);
     };
 
     Weather.kelvinToCelsius = function(value) {
-      return value - 273.15;
+      return (value - 273.15).toFixed(2);
     };
 
     Weather.iconUrl = function(icon) {
@@ -216,6 +216,22 @@
     function Current(data) {
       this.data = data;
     }
+
+    Current.prototype.getSunrise = function() {
+      return new Date(this.data.sys.sunrise * 1000);
+    };
+
+    Current.prototype.getSunset = function() {
+      return new Date(this.data.sys.sunset * 1000);
+    };
+
+    Current.prototype.getLocation = function() {
+      return this.data.name + ", " + this.data.sys.country;
+    };
+
+    Current.prototype.getMapLink = function() {
+      return "http://openweathermap.org/Maps?zoom=12&lat=" + this.data.coord.lat + "&lon=" + this.data.coord.lon + "&layers=B0FTTFF";
+    };
 
     Current.prototype.getConditions = function() {
       return this.data.weather[0].description;
