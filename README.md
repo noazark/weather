@@ -48,7 +48,8 @@ The data format is specified here : http://openweathermap.org/weather-data#curre
 ```javascript
 Weather.byCity("Kansas City").getCurrent(function(current) {
     console.log(current);
-    console.log(current.getConditions(), current.getIcon());
+    console.log(current.getLocation(), current.getConditions(), current.getIcon(), current.getMapLink());
+    console.log(current.getSunrise(), current.getSunset());
 });
 ```
 
@@ -59,8 +60,7 @@ The data format is specified here : http://openweathermap.org/weather-data#5days
 ```javascript
 Weather.bylatLng("43.000351", "-75.499901").getForecast(function(forecast) {
     console.log(forecast);
-    console.log("forecast high: " + forecast.high());
-    console.log("forecast low: " + forecast.low());
+    console.log(forecast.high(), forecast.low(), forecast.startAt(), forecast.endAt(), forecast.day());
 });
 ```
 
@@ -115,3 +115,4 @@ Weather.byCity('Montpellier,fr').getCurrent({lang: 'fr'}, function (current) {
 [Weather.js]: http://github.com/noazark/weather
 [Sugar.js]: http://sugarjs.com/
 [jQuery]: http://jquery.com/
+
