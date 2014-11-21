@@ -111,8 +111,8 @@ Weather.byCity('Montpellier,fr').getCurrent({lang: 'fr'}, function (current) {
 
 # Links
 
-*openweathermap.org* http://openweathermap.org
-*Weather.js*: http://github.com/noazark/weather
-*Sugar.js*: http://sugarjs.com/
-*jQuery*: http://jquery.com/
+* *openweathermap.org* http://openweathermap.org
+* *Weather.js*: http://github.com/noazark/weather
+* *Sugar.js*: http://sugarjs.com/
+* *jQuery*: http://jquery.com/
 
