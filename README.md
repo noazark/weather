@@ -29,9 +29,9 @@ node, do the install thing.
 npm install -g weather.js
 ```
 
-**Important!** In the browser you will need to also include [Sugar.js][]
-and [jQuery][]. I will try to remove these dependancies as soon as
-possible.
+**Important!** In the browser you will need to also include [jQuery][].
+Currently it is being used simply for ajax requests. I will be removing this
+dependency soon.
 
 ## Usage
 
@@ -54,5 +54,4 @@ Weather.getForecast("Kansas City", function(forecast) {
 
 [openweathermap.org]: http://openweathermap.org
 [Weather.js]: http://github.com/noazark/weather
-[Sugar.js]: http://sugarjs.com/
 [jQuery]: http://jquery.com/

@@ -1,9 +1,56 @@
 isModule = (typeof module isnt "undefined" and module.exports)
 
 if isModule
-  require('sugar')
   http = require("http")
   URL = require('url')
+
+maxBy = (list, iterator) ->
+  max = null
+  f = (memo, d) ->
+    val = iterator(d)
+
+    if memo == null or val > max
+      max = val
+      memo = d
+
+    return memo
+
+  list.reduce f, null
+
+minBy = (list, iterator) ->
+  min = null
+  f = (memo, d) ->
+    val = iterator(d)
+
+    if memo == null or val < min
+      min = val
+      memo = d
+
+    return memo
+
+  list.reduce f, null
+
+beginningOfDay = (date) ->
+  if typeof date == 'number'
+    date = new Date(date)
+
+  date.setHours(0)
+  date.setMinutes(0)
+  date.setSeconds(0)
+  date.setMilliseconds(0)
+
+  return date
+
+endOfDay = (date) ->
+  if typeof date == 'number'
+    date = new Date(date)
+
+  date.setHours(11)
+  date.setMinutes(59)
+  date.setSeconds(59)
+  date.setMilliseconds(999)
+
+  return date
 
 class Weather
   @VERSION: "0.0.2"
@@ -41,24 +88,24 @@ class Weather.Forecast
     @data = data
 
   startAt: ->
-    new Date(@data.list.min('dt').dt * 1000)
+    new Date(minBy(@data.list, (d) -> d.dt).dt * 1000)
 
   endAt: ->
-    new Date(@data.list.max('dt').dt * 1000)
+    new Date(maxBy(@data.list, (d) -> d.dt).dt * 1000)
 
   day: (date) ->
     return new Weather.Forecast(@_filter(date))
 
   low: () ->
     return undefined unless @data.list.length > 0
-    output = @data.list.min (item) ->
+    output = minBy @data.list, (item) ->
       item.main.temp_min
 
     output.main.temp_min
 
   high: () ->
     return undefined unless @data.list.length > 0
-    output = @data.list.max (item) ->
+    output = maxBy @data.list, (item) ->
       item.main.temp_max
 
     output.main.temp_max
@@ -71,16 +118,15 @@ class Weather.Forecast
     if date instanceof Date
       date = date.getTime()
 
-    clone = Object.clone(@data)
-    beginningOfDay = Date.create(date).beginningOfDay()
-    endOfDay = Date.create(date).endOfDay()
+    _beginningOfDay = beginningOfDay(date)
+    _endOfDay = endOfDay(date)
 
-    clone.list = clone.list.findAll (range) ->
-      dateTimestamp = (range.dt * 1000)
-      if dateTimestamp >= beginningOfDay.getTime() and dateTimestamp <= endOfDay.getTime()
-        return range
-
-    return clone
+    return {
+      list: @data.list.filter (range) ->
+        dateTimestamp = (range.dt * 1000)
+        if dateTimestamp >= _beginningOfDay.getTime() and dateTimestamp <= _endOfDay.getTime()
+          return range
+    }
 
 class Weather.Current
   constructor: (data) ->

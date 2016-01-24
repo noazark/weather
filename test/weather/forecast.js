@@ -30,14 +30,14 @@ describe("Forecast", function() {
     forecast = new Weather.Forecast({
       list: [
         {
-          dt: Date.create('today').getTime() / 1000,
+          dt: (new Date("2016-01-24T17:12:21")).getTime() / 1000,
           main: {
             temp_min: 200,
             temp_max: 230
           }
         },
         {
-          dt: Date.create('tomorrow').getTime() / 1000,
+          dt: (new Date("2016-01-25T18:30:52")).getTime() / 1000,
           main: {
             temp_min: 210,
             temp_max: 220
@@ -63,7 +63,7 @@ describe("Forecast", function() {
   describe("high", function() {
     it("returns highest temperature in the forecast", function() {
       expect(forecast.high()).to.equal(230);
-    });    
+    });
   });
 
   describe("low", function() {
@@ -74,13 +74,13 @@ describe("Forecast", function() {
 
   describe("startAt", function() {
     it("gets the earliest forcasted time", function() {
-      expect(forecast.startAt()).to.eql(Date.create('today'));
+      expect(forecast.startAt()).to.eql(new Date("2016-01-24T17:12:21"));
     });
   });
 
   describe("endAt", function(){
     it("gets the latest forcasted time", function() {
-      expect(forecast.endAt()).to.eql(Date.create('tomorrow'));
+      expect(forecast.endAt()).to.eql(new Date("2016-01-25T18:30:52"));
     });
   });
 
@@ -90,14 +90,14 @@ describe("Forecast", function() {
     });
 
     it("number", function() {
-      expect(forecast.day(Date.create('tomorrow'))).to.be.a(Weather.Forecast)
+      expect(forecast.day(new Date("2016-01-25T18:30:52"))).to.be.a(Weather.Forecast)
     });
 
     it("filters the extended forecast to a single day", function() {
-      expect(forecast.day(Date.create('tomorrow')).data).to.eql({
+      expect(forecast.day(new Date("2016-01-25T18:30:52")).data).to.eql({
         list: [
           {
-            dt: Date.create('tomorrow').getTime()/1000,
+            dt: (new Date("2016-01-25T18:30:52")).getTime() / 1000,
             main: {
               temp_min: 210,
               temp_max: 220
