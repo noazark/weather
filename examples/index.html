@@ -38,7 +38,12 @@
         });
 
         Weather.getForecast( "Guntersville", function ( forecast ) {
-           $( "#forecast" ).html( "High:" + forecast.high() + "<br />Low: " + forecast.low() );
+            $( "#forecast" ).html( "High: " + forecast.high() + "&deg;K or " +
+                Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " +
+                Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " +
+                forecast.low() + "&deg;K or " +
+                Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " +
+                Weather.kelvinToCelsius( forecast.low() ) + "&deg;C" );
         });
     </script>
   </body>
