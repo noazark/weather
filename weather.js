@@ -90,6 +90,7 @@
       })(this));
     };
 
+    /*
     Weather._getJSON = function(url, callback) {
       if (isModule) {
         return http.get(URL.parse(url), function(response) {
@@ -102,6 +103,33 @@
           success: callback
         });
       }
+    };
+    */
+
+    Weather._getJSON = function( url, callback ) {
+        if (isModule) {
+            return http.get(URL.parse(url), function(response) {
+                return callback(response.body);
+            });
+        } else {
+            // Create a new HTTP request to the url provided
+            var request = new XMLHttpRequest();
+
+            // The 3rd parameter must be set to true in order to create an asynchronous request.
+            request.open( "GET", url, true );
+
+            request.onreadystatechange = function() {
+                if ( request.readyState === 4 ) { // 4 is done
+                    // Success!
+                    callback( JSON.parse( request.responseText ) );
+                } else {
+                    // We reached our target server, but it returned an error
+                    throw new Error( request.status + " " + request.statusText );
+                }
+            };
+
+            request.send();
+        }
     };
 
     return Weather;
