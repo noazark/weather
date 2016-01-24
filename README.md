@@ -47,8 +47,9 @@ Weather.getCurrent("Kansas City", function(current) {
 });
 
 Weather.getForecast("Kansas City", function(forecast) {
-  console.log("forecast high: " + forecast.high());
-  console.log("forecast low: " + forecast.low());
+  console.log("Forecast High in Kelvin: " + forecast.high());
+  console.log("Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit( forecast.high() );
+  console.log("Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() );
 });
 ```
 
