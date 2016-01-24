@@ -30,14 +30,14 @@ describe("Forecast", function() {
     forecast = new Weather.Forecast({
       list: [
         {
-          dt: (new Date("2016-01-24T17:12:21")).getTime() / 1000,
+          dt: (new Date("2016-01-22T09:12:21-0800")).getTime() / 1000,
           main: {
             temp_min: 200,
             temp_max: 230
           }
         },
         {
-          dt: (new Date("2016-01-25T18:30:52")).getTime() / 1000,
+          dt: (new Date("2016-01-23T10:30:52-0800")).getTime() / 1000,
           main: {
             temp_min: 210,
             temp_max: 220
@@ -74,13 +74,13 @@ describe("Forecast", function() {
 
   describe("startAt", function() {
     it("gets the earliest forcasted time", function() {
-      expect(forecast.startAt()).to.eql(new Date("2016-01-24T17:12:21"));
+      expect(forecast.startAt()).to.eql(new Date("2016-01-22T09:12:21-0800"));
     });
   });
 
   describe("endAt", function(){
     it("gets the latest forcasted time", function() {
-      expect(forecast.endAt()).to.eql(new Date("2016-01-25T18:30:52"));
+      expect(forecast.endAt()).to.eql(new Date("2016-01-23T10:30:52-0800"));
     });
   });
 
@@ -90,14 +90,14 @@ describe("Forecast", function() {
     });
 
     it("number", function() {
-      expect(forecast.day(new Date("2016-01-25T18:30:52"))).to.be.a(Weather.Forecast)
+      expect(forecast.day(new Date("2016-01-23T10:30:52-0800"))).to.be.a(Weather.Forecast)
     });
 
     it("filters the extended forecast to a single day", function() {
-      expect(forecast.day(new Date("2016-01-25T18:30:52")).data).to.eql({
+      expect(forecast.day(new Date("2016-01-23T10:30:52-0800")).data).to.eql({
         list: [
           {
-            dt: (new Date("2016-01-25T18:30:52")).getTime() / 1000,
+            dt: (new Date("2016-01-23T10:30:52-0800")).getTime() / 1000,
             main: {
               temp_min: 210,
               temp_max: 220
