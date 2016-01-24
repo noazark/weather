@@ -4,54 +4,6 @@ if isModule
   http = require("http")
   URL = require('url')
 
-maxBy = (list, iterator) ->
-  max = null
-  f = (memo, d) ->
-    val = iterator(d)
-
-    if memo == null or val > max
-      max = val
-      memo = d
-
-    return memo
-
-  list.reduce f, null
-
-minBy = (list, iterator) ->
-  min = null
-  f = (memo, d) ->
-    val = iterator(d)
-
-    if memo == null or val < min
-      min = val
-      memo = d
-
-    return memo
-
-  list.reduce f, null
-
-beginningOfDay = (date) ->
-  if typeof date == 'number'
-    date = new Date(date)
-
-  date.setHours(0)
-  date.setMinutes(0)
-  date.setSeconds(0)
-  date.setMilliseconds(0)
-
-  return date
-
-endOfDay = (date) ->
-  if typeof date == 'number'
-    date = new Date(date)
-
-  date.setHours(11)
-  date.setMinutes(59)
-  date.setSeconds(59)
-  date.setMilliseconds(999)
-
-  return date
-
 class Weather
   @VERSION: "0.0.2"
 
@@ -82,6 +34,41 @@ class Weather
         url: url,
         dataType: "jsonp"
         success: callback
+
+Weather.Utils = {}
+
+maxBy = Weather.Utils.maxBy = (list, iterator) ->
+  max = null
+  f = (memo, d) ->
+    val = iterator(d)
+
+    if memo == null or val > max
+      max = val
+      memo = d
+
+    return memo
+
+  list.reduce f, null
+
+minBy = Weather.Utils.minBy = (list, iterator) ->
+  min = null
+  f = (memo, d) ->
+    val = iterator(d)
+
+    if memo == null or val < min
+      min = val
+      memo = d
+
+    return memo
+
+  list.reduce f, null
+
+isOnDate = Weather.Utils.isOnDate = (a, b) ->
+  sameYear = a.getYear() == b.getYear()
+  sameMonth = a.getMonth() == b.getMonth()
+  sameDate = a.getDate() == b.getDate()
+
+  return sameYear and sameMonth and sameDate
 
 class Weather.Forecast
   constructor: (data) ->
@@ -115,16 +102,10 @@ class Weather.Forecast
   #
 
   _filter: (date) ->
-    if date instanceof Date
-      date = date.getTime()
-
-    _beginningOfDay = beginningOfDay(date)
-    _endOfDay = endOfDay(date)
-
     return {
       list: @data.list.filter (range) ->
         dateTimestamp = (range.dt * 1000)
-        if dateTimestamp >= _beginningOfDay.getTime() and dateTimestamp <= _endOfDay.getTime()
+        if isOnDate(new Date(dateTimestamp), date)
           return range
     }
 

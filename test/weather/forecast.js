@@ -86,7 +86,7 @@ describe("Forecast", function() {
 
   describe("day", function() {
     it("date", function() {
-      expect(forecast.day(0)).to.be.a(Weather.Forecast)
+      expect(forecast.day(new Date(0))).to.be.a(Weather.Forecast)
     });
 
     it("number", function() {
