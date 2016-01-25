@@ -3,7 +3,7 @@ isModule = (typeof module !== "undefined" && module.exports)
 if(isModule) {
   require('mocha')
   expect = require('expect.js')
-  Weather = require('../../weather')
+  Weather = require('../../dist/weather')
   nock = require('nock')
   nock('http://openweathermap.org')
     .filteringPath(/q=[^&]*/g, 'q=Kansas%20City')
@@ -72,4 +72,4 @@ describe("Current", function() {
       expect(current.conditions()).to.eql('sky is clear');
     });
   });
-}); 
+});

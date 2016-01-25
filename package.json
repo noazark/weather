@@ -26,5 +26,6 @@
   },
   "scripts": {
     "test": "make test"
-  }
+  },
+  "main": "./dist/weather.js"
 }
