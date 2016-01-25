@@ -19,7 +19,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "coffee-script": "^1.10.0",
     "expect.js": "^0.3.1",
     "mocha": "^2.3.4",
     "nock": "^5.2.1",
