@@ -22,7 +22,7 @@ contribute! Among the features I hope to incorporate:
 ## Install
 
 Weather.js works in the browser and node.js. Take your pick. For the
-browser, [download the most recent version on github][Weather.js]. For use in
+browser, [download the most recent version on GitHub][Weather.js]. For use in
 node, just install using NPM.
 
 ```
