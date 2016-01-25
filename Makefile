@@ -5,7 +5,7 @@ all: weather test
 weather: weather.js weather.min.js
 
 weather.js:
-	node_modules/.bin/coffee -c -o ./ src/weather.coffee
+	cp lib/weather.js $@
 
 weather.min.js: weather.js
 	node_modules/.bin/uglifyjs -o $@ $<
