@@ -90,22 +90,6 @@
       })(this));
     };
 
-    /*
-    Weather._getJSON = function(url, callback) {
-      if (isModule) {
-        return http.get(URL.parse(url), function(response) {
-          return callback(response.body);
-        });
-      } else {
-        return $.ajax({
-          url: url,
-          dataType: "jsonp",
-          success: callback
-        });
-      }
-    };
-    */
-
     Weather._getJSON = function( url, callback ) {
         if (isModule) {
             return http.get(URL.parse(url), function(response) {
@@ -119,12 +103,9 @@
             request.open( "GET", url, true );
 
             request.onreadystatechange = function() {
-                if ( request.readyState === 4 ) { // 4 is done
+                if ( request.readyState === 4 && request.status === 200) { // 4 is done & 200 is OK
                     // Success!
                     callback( JSON.parse( request.responseText ) );
-                } else {
-                    // We reached our target server, but it returned an error
-                    throw new Error( request.status + " " + request.statusText );
                 }
             };
 
