@@ -2,13 +2,14 @@
 all: weather test
 
 .PHONY: weather
-weather: weather.js weather.min.js
 
-weather.js:
-	cp lib/weather.js $@
+weather: dist/weather.js dist/weather.min.js
 
-weather.min.js: weather.js
-	node_modules/.bin/uglifyjs -o $@ $<
+dist/weather.js:
+	mkdir -p ./dist/ && cp lib/weather.js $@
+
+dist/weather.min.js: dist/weather.js
+	mkdir -p ./dist/ && node_modules/.bin/uglifyjs -o $@ $<
 
 .PHONY: test
 
