@@ -5,8 +5,8 @@ Weather.js
 
 ## About
 
-There really should be a conclusive Javascript weather library.
-Weather.js fetches data from [openweathermap.org][] (no affiliation).
+There really should be a conclusive JavaScript weather library.
+Weather.js fetches data from [OpenWeatherMap](http://openweathermap.org/) (no affiliation).
 Since other providers format their output differently, currently this is
 the only source provider.
 
@@ -22,16 +22,12 @@ contribute! Among the features I hope to incorporate:
 ## Install
 
 Weather.js works in the browser and node.js. Take your pick. For the
-browser, [download the most recent version on github][Weather.js]. For use in
-node, do the install thing.
+browser, [download the most recent version on GitHub][Weather.js]. For use in
+node, just install using NPM.
 
 ```
 npm install -g weather.js
 ```
-
-**Important!** In the browser you will need to also include [jQuery][].
-Currently it is being used simply for ajax requests. I will be removing this
-dependency soon.
 
 ## Usage
 
@@ -55,4 +51,3 @@ Weather.getForecast("Kansas City", function(forecast) {
 
 [openweathermap.org]: http://openweathermap.org
 [Weather.js]: http://github.com/noazark/weather
-[jQuery]: http://jquery.com/

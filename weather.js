@@ -33,17 +33,26 @@ Weather.getForecast = function (city, callback) {
   })
 }
 
-Weather._getJSON = function (url, callback) {
+Weather._getJSON = function( url, callback ) {
   if (isModule) {
-    return http.get(URL.parse(url), function (response) {
-      callback(response.body)
-    })
+    return http.get(URL.parse(url), function(response) {
+      return callback(response.body);
+    });
   } else {
-    return $.ajax({
-      url: url,
-      dataType: "jsonp",
-      success: callback
-    })
+    // Create a new HTTP request to the url provided
+    var request = new XMLHttpRequest();
+
+    // The 3rd parameter must be set to true in order to create an asynchronous request.
+    request.open( "GET", url, true );
+
+    request.onreadystatechange = function() {
+      if ( request.readyState === 4 && request.status === 200) { // 4 is done & 200 is OK
+        // Success!
+       callback( JSON.parse( request.responseText ) );
+      }
+    };
+
+    request.send();
   }
 }
 
