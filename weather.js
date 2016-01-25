@@ -54,7 +54,7 @@ Weather._getJSON = function( url, callback ) {
 
     request.send();
   }
-};
+}
 
 Weather.Utils = {}
 
