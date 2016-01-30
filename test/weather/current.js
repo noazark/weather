@@ -14,7 +14,7 @@ describe("Current", function() {
     this.server = sinon.fakeServer.create()
     this.server.respondWith(
       'GET',
-      'http://openweathermap.org/data/2.1/forecast/city?*',
+      'http://openweathermap.org/data/2.1/find/city?*',
       [200, {}, '']
     );
 
