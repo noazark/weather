@@ -15,7 +15,7 @@ describe("Forecast", function() {
     this.server.respondWith(
       'GET',
       'http://openweathermap.org/data/2.1/forecast/city?*',
-      [200]
+      [200, {}, '']
     );
 
     forecast = new Weather.Forecast({
