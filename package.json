@@ -21,7 +21,6 @@
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^2.3.4",
-    "nock": "^5.2.1",
     "uglify-js": "^2.6.1",
     "sinon": "1.17.3"
   },
