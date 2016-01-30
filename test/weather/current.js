@@ -3,8 +3,8 @@ isModule = (typeof module !== "undefined" && module.exports)
 if(isModule) {
   require('mocha')
   expect = require('expect.js')
-  Weather = require('../../dist/weather')
   sinon = require('sinon')
+  Weather = require('../../dist/weather')
 }
 
 var current;
@@ -15,7 +15,7 @@ describe("Current", function() {
     this.server.respondWith(
       'GET',
       'http://openweathermap.org/data/2.1/find/city?*',
-      [200, {}, '']
+      '{}'
     );
 
     current = new Weather.Current(
