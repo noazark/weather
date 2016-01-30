@@ -4,28 +4,19 @@ if(isModule) {
   require('mocha')
   expect = require('expect.js')
   Weather = require('../../dist/weather')
-  nock = require('nock')
-  nock('http://openweathermap.org')
-    .filteringPath(/q=[^&]*/g, 'q=Kansas%20City')
-    .get('/data/2.1/find/city?q=Kansas%20City&cnt=1')
-    .reply(200);
+  sinon = require('sinon')
 }
 
 var current;
 
 describe("Current", function() {
   before(function () {
-    if(!isModule) {
-      $.mockjax({
-        log: null,
-        url: 'http://openweathermap.org/data/2.1/find/city?*',
-        status: 200,
-        response: function(request) {
-          //trigger callback... because it's JSONP
-          request.success();
-        }
-      });
-    }
+    this.server = sinon.fakeServer.create()
+    this.server.respondWith(
+      'GET',
+      'http://openweathermap.org/data/2.1/forecast/city?*',
+      [200, {}, '']
+    );
 
     current = new Weather.Current(
       {
@@ -46,12 +37,12 @@ describe("Current", function() {
         ]
       }
     );
+    
+    this.server.respond()
   });
 
   after(function () {
-    if(!isModule) {
-      $.mockjaxClear();
-    }
+    this.server.restore()
   });
 
   it("creates `Current` weather conditions", function(done) {
