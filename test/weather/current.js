@@ -11,38 +11,33 @@ var current;
 
 describe("Current", function() {
   before(function () {
-    this.server = sinon.fakeServer.create()
-    this.server.respondWith(
-      'GET',
-      'http://openweathermap.org/data/2.1/find/city?*',
-      '{}'
-    );
+    sinon.stub(Weather, '_getJSON', function (url, callback) {
+      callback('{}')
+    })
+  })
 
-    current = new Weather.Current(
-      {
-        list: [
-          {
-            main: {
-              temp: 290.88,
-              temp_min: 289.82,
-              temp_max: 294.82
-            },
-            weather: [
-              {
-                main: "Clear",
-                description: "sky is clear"
-              }
-            ]
-          }
-        ]
-      }
-    );
-    
-    this.server.respond()
+  before(function () {
+    current = new Weather.Current({
+      list: [
+        {
+          main: {
+            temp: 290.88,
+            temp_min: 289.82,
+            temp_max: 294.82
+          },
+          weather: [
+            {
+              main: "Clear",
+              description: "sky is clear"
+            }
+          ]
+        }
+      ]
+    })
   });
 
   after(function () {
-    this.server.restore()
+    Weather._getJSON.restore()
   });
 
   it("creates `Current` weather conditions", function(done) {

@@ -9,6 +9,27 @@ var Weather = {}
 
 Weather.VERSION = '0.0.2'
 
+function jsonp(uri, callback){
+  return new Promise(function(resolve, reject){
+    var id = '_' + Math.round(10000 * Math.random())
+    var callbackName = 'jsonp_callback_' + id
+    window[callbackName] = function(data){
+      delete window[callbackName]
+      var ele = document.getElementById(id)
+      ele.parentNode.removeChild(ele)
+      resolve(data)
+    }
+
+    var src = uri + '&callback=' + callbackName
+    var script = document.createElement('script')
+    script.src = src
+    script.id = id
+    script.addEventListener('error', reject)
+    var el = (document.getElementsByTagName('head')[0] || document.body || document.documentElement)
+    el.appendChild(script)
+  })
+}
+
 Weather.kelvinToFahrenheit = function (value) {
   return (this.kelvinToCelsius(value) * 1.8) + 32
 }
@@ -39,20 +60,7 @@ Weather._getJSON = function( url, callback ) {
       return callback(response.body);
     });
   } else {
-    // Create a new HTTP request to the url provided
-    var request = new XMLHttpRequest();
-
-    // The 3rd parameter must be set to true in order to create an asynchronous request.
-    request.open( "GET", url, true );
-
-    request.onreadystatechange = function() {
-      if ( request.readyState === 4 && request.status === 200) { // 4 is done & 200 is OK
-        // Success!
-       callback( JSON.parse( request.responseText ) );
-      }
-    };
-
-    request.send();
+    jsonp(url).then(callback)
   }
 }
 

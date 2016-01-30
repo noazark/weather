@@ -10,14 +10,13 @@ if(isModule) {
 var forecast;
 
 describe("Forecast", function() {
-  beforeEach(function() {
-    this.server = sinon.fakeServer.create()
-    this.server.respondWith(
-      'GET',
-      'http://openweathermap.org/data/2.1/forecast/city?*',
-      '{}'
-    );
+  before(function () {
+    sinon.stub(Weather, '_getJSON', function (url, callback) {
+      callback('{}')
+    })
+  })
 
+  beforeEach(function() {
     forecast = new Weather.Forecast({
       list: [
         {
@@ -35,13 +34,11 @@ describe("Forecast", function() {
           }
         }
       ]
-    });
-    
-    this.server.respond()
+    })
   });
 
   after(function() {
-    this.server.restore()
+    Weather._getJSON.restore()
   })
 
   it("creates a `Forecast`", function(done) {
