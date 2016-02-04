@@ -17,31 +17,30 @@
             <span class="conditions"></span>
         </h2>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="js/expect.js"></script>
         <script src="js/mocha.js"></script>
         <script src="js/sinon.js"></script>
-        <script>mocha.setup("tdd")</script>
+        <script>mocha.setup( "tdd" )</script>
         <script src="../dist/weather.min.js"></script>
         <script src="weather/converters.js"></script>
         <script src="weather/forecast.js"></script>
         <script src="weather/current.js"></script>
         <script>
-            (function() {
-                Weather.getCurrent('Kansas City', function(current) {
+            ( function() {
+                Weather.getCurrent( "Kansas City", function( current ) {
                 var conditions = document.querySelector( "#weather .conditions" );
-                conditions.innerHTML = Weather.kelvinToFahrenheit( current.temperature() ).toFixed() + '° and ' + current.conditions();
+                conditions.innerHTML = Weather.kelvinToFahrenheit( current.temperature() ).toFixed() + "° and " + current.conditions();
 
                 var icon = document.querySelector( "#weather i" );
-                icon.className += "icon-" + current.data.list[0].weather[0].id;
-                });
+                icon.className += "icon-" + current.data.list[ 0 ].weather[ 0 ].id;
+                } );
 
-                mocha.setup({
-                ignoreLeaks: true
-                });
+                mocha.setup( {
+                    ignoreLeaks: true
+                } );
 
                 mocha.run();
-            });
+            } );
         </script>
     </body>
 </html>
