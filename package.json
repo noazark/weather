@@ -37,7 +37,10 @@
     "uglify-js": "^2.6.1"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": [
+        "tests/weather",
+        "grunt test"
+    ]
   },
   "main": "./dist/weather.js"
 }

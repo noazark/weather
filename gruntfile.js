@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
         travis: {
             configFile: "karma.conf.js",
             singleRun: true,
-            browswer: ["PhantomJS"]
+            browser: ["PhantomJS"]
         }
     },
     uglify: {
