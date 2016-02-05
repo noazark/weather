@@ -38,7 +38,7 @@
     "test": [
       "make test",
       "test/weather",
-      "./node_modules/.bin/karma start --single-run --browsers PhantomJS ./test/weather/"
+      "./node_modules/.bin/karma start --single-run --browsers PhantomJS test/weather"
     ]
   },
   "main": "./dist/weather.js"
