@@ -43,7 +43,7 @@
     "test": [
       "make test",
       "test/weather",
-      "./node_modules/.bin/karma start --single-run --browsers PhantomJS ./test/weather/"
+      "./node_modules/.bin/karma start --single-run --browsers PhantomJS test/weather"
     ]
 >>>>>>> Updated Travis CI script
   },
