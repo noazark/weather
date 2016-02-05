@@ -1,10 +1,9 @@
 isModule = (typeof module !== "undefined" && module.exports)
 
 if(isModule) {
-  require('mocha')
   expect = require('expect.js')
   sinon = require('sinon')
-  Weather = require('../../dist/weather')
+  Weather = require('../lib/weather')
 }
 
 var current;

@@ -25,6 +25,12 @@ module.exports = function( grunt ) {
         }
       }
     },
+    copy: {
+      main: {
+        src: 'lib/weather.js',
+        dest: 'dist/weather.js',
+      }
+    },
     watch: {
       files: [ "lib/**/*.js" ],
       tasks: [ "jshint", "karma", "uglify" ]
@@ -35,9 +41,10 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-karma" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-watch" );
+  grunt.loadNpmTasks( "grunt-contrib-copy" );
 
   grunt.registerTask( "default", [ "jshint", "karma", "watch" ] );
   grunt.registerTask( "lint", [ "jshint" ] );
-  grunt.registerTask( "deploy", [ "jshint", "uglify" ] );
+  grunt.registerTask( "deploy", [ "jshint", "copy", "uglify" ] );
 
 };

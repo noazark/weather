@@ -1,3 +1,9 @@
+isModule = (typeof module !== "undefined" && module.exports)
+
+if(isModule) {
+  Weather = require('../lib/weather')
+}
+
 describe("Converters", function() {
   it("kelvin to fahrenheit", function() {
     expect(Weather.kelvinToFahrenheit(295.372).toFixed()).to.eql(72);
