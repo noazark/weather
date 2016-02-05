@@ -35,11 +35,7 @@
     "uglify-js": "^2.6.1"
   },
   "scripts": {
-    "test": [
-      "make test",
-      "test/weather",
-      "./node_modules/.bin/karma start --single-run --browsers PhantomJS test/weather"
-    ]
+    "test": "grunt test"
   },
   "main": "./dist/weather.js"
 }
