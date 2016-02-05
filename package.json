@@ -37,7 +37,15 @@
     "uglify-js": "^2.6.1"
   },
   "scripts": {
+<<<<<<< b40471c8a492b739c23594ff84d3387bbb85fc3b
     "test": "bin/run-tests"
+=======
+    "test": [
+      "make test",
+      "test/weather",
+      "./node_modules/.bin/karma start --single-run --browsers PhantomJS ./test/weather/"
+    ]
+>>>>>>> Updated Travis CI script
   },
   "main": "./dist/weather.js"
 }
