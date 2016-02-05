@@ -37,6 +37,7 @@
     "uglify-js": "^2.6.1"
   },
   "scripts": {
+<<<<<<< 7f1027abfc5abe5a04dd973bca52e3025d92daef
 <<<<<<< b40471c8a492b739c23594ff84d3387bbb85fc3b
     "test": "bin/run-tests"
 =======
@@ -46,6 +47,9 @@
       "./node_modules/.bin/karma start --single-run --browsers PhantomJS test/weather"
     ]
 >>>>>>> Updated Travis CI script
+=======
+    "test": "grunt test"
+>>>>>>> Removed Make and updated Travis
   },
   "main": "./dist/weather.js"
 }
