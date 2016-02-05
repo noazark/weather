@@ -8,7 +8,13 @@ module.exports = function( grunt ) {
     },
     karma: {
         unit: {
-            configFile: "karma.conf.js"
+            configFile: "karma.conf.js",
+            background: true
+        },
+        travis: {
+            configFile: "karma.conf.js",
+            singleRun: true,
+            browser: ["PhantomJS"]
         }
     },
     uglify: {
@@ -27,7 +33,7 @@ module.exports = function( grunt ) {
     },
     watch: {
       files: [ "lib/**/*.js" ],
-      tasks: [ "jshint", "karma", "uglify" ]
+      tasks: [ "jshint", "karma:unit:run", "uglify" ]
     }
   } );
 
@@ -38,6 +44,7 @@ module.exports = function( grunt ) {
 
   grunt.registerTask( "default", [ "jshint", "karma", "watch" ] );
   grunt.registerTask( "lint", [ "jshint" ] );
+  grunt.registerTask( "test", [ "karma:travis" ] );
   grunt.registerTask( "deploy", [ "jshint", "uglify" ] );
 
 };

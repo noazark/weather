@@ -1,0 +1,6 @@
+#!/bin/sh
+
+grunt deploy
+
+./node_modules/.bin/mocha test/weather
+./node_modules/.bin/karma start --single-run
