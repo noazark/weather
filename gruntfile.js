@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
       },
       dist: {
         files: {
-          "dist/weather.min.js": [ "src/**/*.js" ]
+          "dist/weather.min.js": [ "lib/**/*.js" ]
         }
       }
     },
