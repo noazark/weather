@@ -7,7 +7,7 @@ if (isModule) {
 
 var Weather = {Utils: {}};
 
-Weather.VERSION = "0.0.2";
+Weather.VERSION = "0.0.3";
 
 var jsonp = Weather.Utils.jsonp = function (uri, callback){
   return new Promise(function(resolve, reject){
