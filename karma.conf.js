@@ -1,23 +1,24 @@
 /* eslint-env node */
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     frameworks: ['browserify', 'mocha', 'chai', 'sinon'],
 
     reporters: ['mocha'],
 
     files: [
-      '**/*.js'
-    ],
-
-    exclude: [
-      'node_modules/**/*.js'
+      'clients/**/*.js',
+      'helpers/**/*.js',
+      'test/**/test-*.js',
+      'weather.js'
     ],
 
     preprocessors: {
-      '**/*.js': ['eslint'],
-      'test/**/test-*.js': ['browserify']
+      'clients/**/*.js': ['eslint', 'browserify'],
+      'helpers/**/*.js': ['eslint', 'browserify'],
+      'test/**/*.js': ['eslint', 'browserify'],
+      'weather.js': ['eslint', 'browserify'],
     },
 
     eslint: {

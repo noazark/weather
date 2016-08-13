@@ -36,18 +36,19 @@
     "karma": "^0.13.22",
     "karma-browserify": "^5.1.0",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
     "karma-eslint": "^2.1.0",
     "karma-junit-reporter": "^1.1.0",
     "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.4",
-    "karma-phantomjs-launcher": "^1.0.0",
     "karma-sinon": "^1.0.5",
     "mocha": "^2.5.3",
-    "phantomjs-prebuilt": "^2.1.7",
     "sinon": "^1.17.2",
     "watchify": "^3.7.0"
   },
   "browserify": {
-    "transform": ["babelify"]
+    "transform": [
+      "babelify"
+    ]
   }
 }
