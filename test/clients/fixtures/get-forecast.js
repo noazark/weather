@@ -13,123 +13,20 @@ export const response = `{
     }
   },
   "cod": "200",
-  "message": 0.0486,
-  "cnt": 40,
+  "message": 0.0439,
+  "cnt": 38,
   "list": [
-    {
-      "dt": 1471122000,
-      "main": {
-        "temp": 83.23,
-        "temp_min": 82.99,
-        "temp_max": 83.23,
-        "pressure": 996.91,
-        "sea_level": 1027.12,
-        "grnd_level": 996.91,
-        "humidity": 85,
-        "temp_kf": 0.13
-      },
-      "weather": [
-        {
-          "id": 500,
-          "main": "Rain",
-          "description": "light rain",
-          "icon": "10d"
-        }
-      ],
-      "clouds": {
-        "all": 36
-      },
-      "wind": {
-        "speed": 8.46,
-        "deg": 185.001
-      },
-      "rain": {
-        "3h": 1.55
-      },
-      "sys": {
-        "pod": "d"
-      },
-      "dt_txt": "2016-08-13 21:00:00"
-    },
-    {
-      "dt": 1471132800,
-      "main": {
-        "temp": 79.7,
-        "temp_min": 79.52,
-        "temp_max": 79.7,
-        "pressure": 997.6,
-        "sea_level": 1027.87,
-        "grnd_level": 997.6,
-        "humidity": 88,
-        "temp_kf": 0.1
-      },
-      "weather": [
-        {
-          "id": 500,
-          "main": "Rain",
-          "description": "light rain",
-          "icon": "10n"
-        }
-      ],
-      "clouds": {
-        "all": 24
-      },
-      "wind": {
-        "speed": 5.1,
-        "deg": 186.002
-      },
-      "rain": {
-        "3h": 1.1
-      },
-      "sys": {
-        "pod": "n"
-      },
-      "dt_txt": "2016-08-14 00:00:00"
-    },
-    {
-      "dt": 1471143600,
-      "main": {
-        "temp": 76.23,
-        "temp_min": 76.11,
-        "temp_max": 76.23,
-        "pressure": 998.85,
-        "sea_level": 1029.1,
-        "grnd_level": 998.85,
-        "humidity": 91,
-        "temp_kf": 0.07
-      },
-      "weather": [
-        {
-          "id": 800,
-          "main": "Clear",
-          "description": "clear sky",
-          "icon": "02n"
-        }
-      ],
-      "clouds": {
-        "all": 8
-      },
-      "wind": {
-        "speed": 6.06,
-        "deg": 174.505
-      },
-      "rain": {},
-      "sys": {
-        "pod": "n"
-      },
-      "dt_txt": "2016-08-14 03:00:00"
-    },
     {
       "dt": 1471154400,
       "main": {
-        "temp": 75.04,
-        "temp_min": 74.97,
-        "temp_max": 75.04,
+        "temp": 296.53,
+        "temp_min": 296.53,
+        "temp_max": 297.023,
         "pressure": 998.9,
         "sea_level": 1029.27,
         "grnd_level": 998.9,
         "humidity": 95,
-        "temp_kf": 0.03
+        "temp_kf": -0.49
       },
       "weather": [
         {
@@ -143,7 +40,7 @@ export const response = `{
         "all": 12
       },
       "wind": {
-        "speed": 5.17,
+        "speed": 2.31,
         "deg": 178.501
       },
       "rain": {},
@@ -155,14 +52,14 @@ export const response = `{
     {
       "dt": 1471165200,
       "main": {
-        "temp": 74.29,
-        "temp_min": 74.29,
-        "temp_max": 74.29,
+        "temp": 296.27,
+        "temp_min": 296.27,
+        "temp_max": 296.644,
         "pressure": 999.19,
         "sea_level": 1029.58,
         "grnd_level": 999.19,
         "humidity": 96,
-        "temp_kf": 0
+        "temp_kf": -0.37
       },
       "weather": [
         {
@@ -176,7 +73,7 @@ export const response = `{
         "all": 44
       },
       "wind": {
-        "speed": 4.29,
+        "speed": 1.92,
         "deg": 172.5
       },
       "rain": {},
@@ -188,14 +85,14 @@ export const response = `{
     {
       "dt": 1471176000,
       "main": {
-        "temp": 75.28,
-        "temp_min": 75.28,
-        "temp_max": 75.28,
+        "temp": 296.95,
+        "temp_min": 296.95,
+        "temp_max": 297.194,
         "pressure": 1000.35,
         "sea_level": 1030.91,
         "grnd_level": 1000.35,
         "humidity": 94,
-        "temp_kf": 0
+        "temp_kf": -0.25
       },
       "weather": [
         {
@@ -209,7 +106,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 5.41,
+        "speed": 2.42,
         "deg": 163.502
       },
       "rain": {
@@ -223,14 +120,14 @@ export const response = `{
     {
       "dt": 1471186800,
       "main": {
-        "temp": 78.66,
-        "temp_min": 78.66,
-        "temp_max": 78.66,
+        "temp": 298.95,
+        "temp_min": 298.95,
+        "temp_max": 299.073,
         "pressure": 1001.21,
         "sea_level": 1031.61,
         "grnd_level": 1001.21,
         "humidity": 88,
-        "temp_kf": 0
+        "temp_kf": -0.12
       },
       "weather": [
         {
@@ -244,7 +141,7 @@ export const response = `{
         "all": 48
       },
       "wind": {
-        "speed": 6.51,
+        "speed": 2.91,
         "deg": 167.501
       },
       "rain": {
@@ -258,9 +155,9 @@ export const response = `{
     {
       "dt": 1471197600,
       "main": {
-        "temp": 83.7,
-        "temp_min": 83.7,
-        "temp_max": 83.7,
+        "temp": 301.871,
+        "temp_min": 301.871,
+        "temp_max": 301.871,
         "pressure": 1000.67,
         "sea_level": 1030.88,
         "grnd_level": 1000.67,
@@ -279,7 +176,7 @@ export const response = `{
         "all": 32
       },
       "wind": {
-        "speed": 7.65,
+        "speed": 3.42,
         "deg": 165.005
       },
       "rain": {},
@@ -291,9 +188,9 @@ export const response = `{
     {
       "dt": 1471208400,
       "main": {
-        "temp": 86.63,
-        "temp_min": 86.63,
-        "temp_max": 86.63,
+        "temp": 303.501,
+        "temp_min": 303.501,
+        "temp_max": 303.501,
         "pressure": 999.7,
         "sea_level": 1029.91,
         "grnd_level": 999.7,
@@ -312,7 +209,7 @@ export const response = `{
         "all": 24
       },
       "wind": {
-        "speed": 7.9,
+        "speed": 3.53,
         "deg": 174
       },
       "rain": {},
@@ -324,9 +221,9 @@ export const response = `{
     {
       "dt": 1471219200,
       "main": {
-        "temp": 83.42,
-        "temp_min": 83.42,
-        "temp_max": 83.42,
+        "temp": 301.717,
+        "temp_min": 301.717,
+        "temp_max": 301.717,
         "pressure": 999.89,
         "sea_level": 1030.17,
         "grnd_level": 999.89,
@@ -345,7 +242,7 @@ export const response = `{
         "all": 44
       },
       "wind": {
-        "speed": 7.76,
+        "speed": 3.47,
         "deg": 183.509
       },
       "rain": {},
@@ -357,9 +254,9 @@ export const response = `{
     {
       "dt": 1471230000,
       "main": {
-        "temp": 79.68,
-        "temp_min": 79.68,
-        "temp_max": 79.68,
+        "temp": 299.639,
+        "temp_min": 299.639,
+        "temp_max": 299.639,
         "pressure": 1001.25,
         "sea_level": 1031.7,
         "grnd_level": 1001.25,
@@ -378,7 +275,7 @@ export const response = `{
         "all": 20
       },
       "wind": {
-        "speed": 6.04,
+        "speed": 2.7,
         "deg": 179.502
       },
       "rain": {},
@@ -390,9 +287,9 @@ export const response = `{
     {
       "dt": 1471240800,
       "main": {
-        "temp": 76.85,
-        "temp_min": 76.85,
-        "temp_max": 76.85,
+        "temp": 298.069,
+        "temp_min": 298.069,
+        "temp_max": 298.069,
         "pressure": 1001.5,
         "sea_level": 1031.96,
         "grnd_level": 1001.5,
@@ -411,7 +308,7 @@ export const response = `{
         "all": 24
       },
       "wind": {
-        "speed": 5.28,
+        "speed": 2.36,
         "deg": 181.502
       },
       "rain": {},
@@ -423,9 +320,9 @@ export const response = `{
     {
       "dt": 1471251600,
       "main": {
-        "temp": 74.15,
-        "temp_min": 74.15,
-        "temp_max": 74.15,
+        "temp": 296.569,
+        "temp_min": 296.569,
+        "temp_max": 296.569,
         "pressure": 1001.35,
         "sea_level": 1031.85,
         "grnd_level": 1001.35,
@@ -444,7 +341,7 @@ export const response = `{
         "all": 8
       },
       "wind": {
-        "speed": 4.41,
+        "speed": 1.97,
         "deg": 173.502
       },
       "rain": {},
@@ -456,9 +353,9 @@ export const response = `{
     {
       "dt": 1471262400,
       "main": {
-        "temp": 73.54,
-        "temp_min": 73.54,
-        "temp_max": 73.54,
+        "temp": 296.227,
+        "temp_min": 296.227,
+        "temp_max": 296.227,
         "pressure": 1002.09,
         "sea_level": 1032.6,
         "grnd_level": 1002.09,
@@ -477,7 +374,7 @@ export const response = `{
         "all": 8
       },
       "wind": {
-        "speed": 4.61,
+        "speed": 2.06,
         "deg": 156.504
       },
       "rain": {},
@@ -489,9 +386,9 @@ export const response = `{
     {
       "dt": 1471273200,
       "main": {
-        "temp": 83.1,
-        "temp_min": 83.1,
-        "temp_max": 83.1,
+        "temp": 301.539,
+        "temp_min": 301.539,
+        "temp_max": 301.539,
         "pressure": 1002.37,
         "sea_level": 1032.78,
         "grnd_level": 1002.37,
@@ -510,7 +407,7 @@ export const response = `{
         "all": 0
       },
       "wind": {
-        "speed": 6.42,
+        "speed": 2.87,
         "deg": 164
       },
       "rain": {},
@@ -522,9 +419,9 @@ export const response = `{
     {
       "dt": 1471284000,
       "main": {
-        "temp": 87.75,
-        "temp_min": 87.75,
-        "temp_max": 87.75,
+        "temp": 304.121,
+        "temp_min": 304.121,
+        "temp_max": 304.121,
         "pressure": 1001.47,
         "sea_level": 1031.79,
         "grnd_level": 1001.47,
@@ -543,7 +440,7 @@ export const response = `{
         "all": 36
       },
       "wind": {
-        "speed": 8.21,
+        "speed": 3.67,
         "deg": 176.001
       },
       "rain": {},
@@ -555,9 +452,9 @@ export const response = `{
     {
       "dt": 1471294800,
       "main": {
-        "temp": 86.22,
-        "temp_min": 86.22,
-        "temp_max": 86.22,
+        "temp": 303.271,
+        "temp_min": 303.271,
+        "temp_max": 303.271,
         "pressure": 999.96,
         "sea_level": 1030.12,
         "grnd_level": 999.96,
@@ -576,7 +473,7 @@ export const response = `{
         "all": 48
       },
       "wind": {
-        "speed": 8.41,
+        "speed": 3.76,
         "deg": 167.501
       },
       "rain": {
@@ -590,9 +487,9 @@ export const response = `{
     {
       "dt": 1471305600,
       "main": {
-        "temp": 83.17,
-        "temp_min": 83.17,
-        "temp_max": 83.17,
+        "temp": 301.579,
+        "temp_min": 301.579,
+        "temp_max": 301.579,
         "pressure": 1000.07,
         "sea_level": 1030.4,
         "grnd_level": 1000.07,
@@ -611,7 +508,7 @@ export const response = `{
         "all": 32
       },
       "wind": {
-        "speed": 8.21,
+        "speed": 3.67,
         "deg": 169.001
       },
       "rain": {},
@@ -623,9 +520,9 @@ export const response = `{
     {
       "dt": 1471316400,
       "main": {
-        "temp": 81,
-        "temp_min": 81,
-        "temp_max": 81,
+        "temp": 300.372,
+        "temp_min": 300.372,
+        "temp_max": 300.372,
         "pressure": 1000.91,
         "sea_level": 1031.36,
         "grnd_level": 1000.91,
@@ -644,7 +541,7 @@ export const response = `{
         "all": 32
       },
       "wind": {
-        "speed": 7.76,
+        "speed": 3.47,
         "deg": 171.002
       },
       "rain": {},
@@ -656,9 +553,9 @@ export const response = `{
     {
       "dt": 1471327200,
       "main": {
-        "temp": 79.26,
-        "temp_min": 79.26,
-        "temp_max": 79.26,
+        "temp": 299.406,
+        "temp_min": 299.406,
+        "temp_max": 299.406,
         "pressure": 1000.91,
         "sea_level": 1031.34,
         "grnd_level": 1000.91,
@@ -677,7 +574,7 @@ export const response = `{
         "all": 68
       },
       "wind": {
-        "speed": 6.85,
+        "speed": 3.06,
         "deg": 192.006
       },
       "rain": {},
@@ -689,9 +586,9 @@ export const response = `{
     {
       "dt": 1471338000,
       "main": {
-        "temp": 78.85,
-        "temp_min": 78.85,
-        "temp_max": 78.85,
+        "temp": 299.18,
+        "temp_min": 299.18,
+        "temp_max": 299.18,
         "pressure": 1000.73,
         "sea_level": 1031.15,
         "grnd_level": 1000.73,
@@ -710,7 +607,7 @@ export const response = `{
         "all": 88
       },
       "wind": {
-        "speed": 7.18,
+        "speed": 3.21,
         "deg": 191.504
       },
       "rain": {},
@@ -722,9 +619,9 @@ export const response = `{
     {
       "dt": 1471348800,
       "main": {
-        "temp": 77.95,
-        "temp_min": 77.95,
-        "temp_max": 77.95,
+        "temp": 298.679,
+        "temp_min": 298.679,
+        "temp_max": 298.679,
         "pressure": 1001.23,
         "sea_level": 1031.67,
         "grnd_level": 1001.23,
@@ -743,7 +640,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 6.96,
+        "speed": 3.11,
         "deg": 192.002
       },
       "rain": {
@@ -757,9 +654,9 @@ export const response = `{
     {
       "dt": 1471359600,
       "main": {
-        "temp": 79.94,
-        "temp_min": 79.94,
-        "temp_max": 79.94,
+        "temp": 299.781,
+        "temp_min": 299.781,
+        "temp_max": 299.781,
         "pressure": 1001.51,
         "sea_level": 1031.9,
         "grnd_level": 1001.51,
@@ -778,7 +675,7 @@ export const response = `{
         "all": 88
       },
       "wind": {
-        "speed": 6.17,
+        "speed": 2.76,
         "deg": 192.501
       },
       "rain": {
@@ -792,9 +689,9 @@ export const response = `{
     {
       "dt": 1471370400,
       "main": {
-        "temp": 80.97,
-        "temp_min": 80.97,
-        "temp_max": 80.97,
+        "temp": 300.356,
+        "temp_min": 300.356,
+        "temp_max": 300.356,
         "pressure": 1001.6,
         "sea_level": 1031.9,
         "grnd_level": 1001.6,
@@ -813,7 +710,7 @@ export const response = `{
         "all": 76
       },
       "wind": {
-        "speed": 6.11,
+        "speed": 2.73,
         "deg": 203.5
       },
       "rain": {
@@ -827,9 +724,9 @@ export const response = `{
     {
       "dt": 1471381200,
       "main": {
-        "temp": 83,
-        "temp_min": 83,
-        "temp_max": 83,
+        "temp": 301.481,
+        "temp_min": 301.481,
+        "temp_max": 301.481,
         "pressure": 1000.64,
         "sea_level": 1030.96,
         "grnd_level": 1000.64,
@@ -848,7 +745,7 @@ export const response = `{
         "all": 32
       },
       "wind": {
-        "speed": 6.2,
+        "speed": 2.77,
         "deg": 203.504
       },
       "rain": {},
@@ -860,9 +757,9 @@ export const response = `{
     {
       "dt": 1471392000,
       "main": {
-        "temp": 78.5,
-        "temp_min": 78.5,
-        "temp_max": 78.5,
+        "temp": 298.981,
+        "temp_min": 298.981,
+        "temp_max": 298.981,
         "pressure": 1001.33,
         "sea_level": 1031.72,
         "grnd_level": 1001.33,
@@ -881,7 +778,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 5.39,
+        "speed": 2.41,
         "deg": 223.509
       },
       "rain": {
@@ -895,9 +792,9 @@ export const response = `{
     {
       "dt": 1471402800,
       "main": {
-        "temp": 74.03,
-        "temp_min": 74.03,
-        "temp_max": 74.03,
+        "temp": 296.499,
+        "temp_min": 296.499,
+        "temp_max": 296.499,
         "pressure": 1001.99,
         "sea_level": 1032.54,
         "grnd_level": 1001.99,
@@ -916,7 +813,7 @@ export const response = `{
         "all": 80
       },
       "wind": {
-        "speed": 1.45,
+        "speed": 0.65,
         "deg": 132.005
       },
       "rain": {
@@ -930,9 +827,9 @@ export const response = `{
     {
       "dt": 1471413600,
       "main": {
-        "temp": 71.77,
-        "temp_min": 71.77,
-        "temp_max": 71.77,
+        "temp": 295.246,
+        "temp_min": 295.246,
+        "temp_max": 295.246,
         "pressure": 1001.87,
         "sea_level": 1032.52,
         "grnd_level": 1001.87,
@@ -951,7 +848,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 3.15,
+        "speed": 1.41,
         "deg": 245.001
       },
       "rain": {
@@ -965,9 +862,9 @@ export const response = `{
     {
       "dt": 1471424400,
       "main": {
-        "temp": 69.04,
-        "temp_min": 69.04,
-        "temp_max": 69.04,
+        "temp": 293.725,
+        "temp_min": 293.725,
+        "temp_max": 293.725,
         "pressure": 1001.77,
         "sea_level": 1032.35,
         "grnd_level": 1001.77,
@@ -986,7 +883,7 @@ export const response = `{
         "all": 80
       },
       "wind": {
-        "speed": 4.03,
+        "speed": 1.8,
         "deg": 353.501
       },
       "rain": {
@@ -1000,9 +897,9 @@ export const response = `{
     {
       "dt": 1471435200,
       "main": {
-        "temp": 69.95,
-        "temp_min": 69.95,
-        "temp_max": 69.95,
+        "temp": 294.236,
+        "temp_min": 294.236,
+        "temp_max": 294.236,
         "pressure": 1002.26,
         "sea_level": 1032.9,
         "grnd_level": 1002.26,
@@ -1021,7 +918,7 @@ export const response = `{
         "all": 68
       },
       "wind": {
-        "speed": 3.02,
+        "speed": 1.35,
         "deg": 120.005
       },
       "rain": {
@@ -1035,9 +932,9 @@ export const response = `{
     {
       "dt": 1471446000,
       "main": {
-        "temp": 74.2,
-        "temp_min": 74.2,
-        "temp_max": 74.2,
+        "temp": 296.594,
+        "temp_min": 296.594,
+        "temp_max": 296.594,
         "pressure": 1002.75,
         "sea_level": 1033.37,
         "grnd_level": 1002.75,
@@ -1056,7 +953,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 3.71,
+        "speed": 1.66,
         "deg": 181.001
       },
       "rain": {},
@@ -1068,9 +965,9 @@ export const response = `{
     {
       "dt": 1471456800,
       "main": {
-        "temp": 76.66,
-        "temp_min": 76.66,
-        "temp_max": 76.66,
+        "temp": 297.959,
+        "temp_min": 297.959,
+        "temp_max": 297.959,
         "pressure": 1003.01,
         "sea_level": 1033.49,
         "grnd_level": 1003.01,
@@ -1089,7 +986,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 3.62,
+        "speed": 1.62,
         "deg": 193.001
       },
       "rain": {
@@ -1103,9 +1000,9 @@ export const response = `{
     {
       "dt": 1471467600,
       "main": {
-        "temp": 76.59,
-        "temp_min": 76.59,
-        "temp_max": 76.59,
+        "temp": 297.92,
+        "temp_min": 297.92,
+        "temp_max": 297.92,
         "pressure": 1001.34,
         "sea_level": 1031.81,
         "grnd_level": 1001.34,
@@ -1124,7 +1021,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 3.96,
+        "speed": 1.77,
         "deg": 180
       },
       "rain": {
@@ -1138,9 +1035,9 @@ export const response = `{
     {
       "dt": 1471478400,
       "main": {
-        "temp": 74.61,
-        "temp_min": 74.61,
-        "temp_max": 74.61,
+        "temp": 296.823,
+        "temp_min": 296.823,
+        "temp_max": 296.823,
         "pressure": 1001.03,
         "sea_level": 1031.42,
         "grnd_level": 1001.03,
@@ -1159,7 +1056,7 @@ export const response = `{
         "all": 44
       },
       "wind": {
-        "speed": 3.6,
+        "speed": 1.61,
         "deg": 151.505
       },
       "rain": {
@@ -1173,9 +1070,9 @@ export const response = `{
     {
       "dt": 1471489200,
       "main": {
-        "temp": 70.78,
-        "temp_min": 70.78,
-        "temp_max": 70.78,
+        "temp": 294.697,
+        "temp_min": 294.697,
+        "temp_max": 294.697,
         "pressure": 1001.49,
         "sea_level": 1032.07,
         "grnd_level": 1001.49,
@@ -1194,7 +1091,7 @@ export const response = `{
         "all": 44
       },
       "wind": {
-        "speed": 2.71,
+        "speed": 1.21,
         "deg": 163.505
       },
       "rain": {},
@@ -1206,9 +1103,9 @@ export const response = `{
     {
       "dt": 1471500000,
       "main": {
-        "temp": 69.45,
-        "temp_min": 69.45,
-        "temp_max": 69.45,
+        "temp": 293.958,
+        "temp_min": 293.958,
+        "temp_max": 293.958,
         "pressure": 1001.28,
         "sea_level": 1031.87,
         "grnd_level": 1001.28,
@@ -1227,7 +1124,7 @@ export const response = `{
         "all": 64
       },
       "wind": {
-        "speed": 2.59,
+        "speed": 1.16,
         "deg": 150.004
       },
       "rain": {},
@@ -1239,9 +1136,9 @@ export const response = `{
     {
       "dt": 1471510800,
       "main": {
-        "temp": 70.52,
-        "temp_min": 70.52,
-        "temp_max": 70.52,
+        "temp": 294.552,
+        "temp_min": 294.552,
+        "temp_max": 294.552,
         "pressure": 1000.83,
         "sea_level": 1031.4,
         "grnd_level": 1000.83,
@@ -1260,7 +1157,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 2.93,
+        "speed": 1.31,
         "deg": 141.501
       },
       "rain": {
@@ -1274,9 +1171,9 @@ export const response = `{
     {
       "dt": 1471521600,
       "main": {
-        "temp": 69.62,
-        "temp_min": 69.62,
-        "temp_max": 69.62,
+        "temp": 294.052,
+        "temp_min": 294.052,
+        "temp_max": 294.052,
         "pressure": 1001.44,
         "sea_level": 1031.95,
         "grnd_level": 1001.44,
@@ -1295,7 +1192,7 @@ export const response = `{
         "all": 92
       },
       "wind": {
-        "speed": 2.64,
+        "speed": 1.18,
         "deg": 107.5
       },
       "rain": {
@@ -1309,9 +1206,9 @@ export const response = `{
     {
       "dt": 1471532400,
       "main": {
-        "temp": 72.4,
-        "temp_min": 72.4,
-        "temp_max": 72.4,
+        "temp": 295.594,
+        "temp_min": 295.594,
+        "temp_max": 295.594,
         "pressure": 1001.56,
         "sea_level": 1032.12,
         "grnd_level": 1001.56,
@@ -1330,7 +1227,7 @@ export const response = `{
         "all": 88
       },
       "wind": {
-        "speed": 2.82,
+        "speed": 1.26,
         "deg": 204.005
       },
       "rain": {
@@ -1344,9 +1241,9 @@ export const response = `{
     {
       "dt": 1471543200,
       "main": {
-        "temp": 79.97,
-        "temp_min": 79.97,
-        "temp_max": 79.97,
+        "temp": 299.799,
+        "temp_min": 299.799,
+        "temp_max": 299.799,
         "pressure": 1000.5,
         "sea_level": 1030.81,
         "grnd_level": 1000.5,
@@ -1365,7 +1262,7 @@ export const response = `{
         "all": 20
       },
       "wind": {
-        "speed": 2.75,
+        "speed": 1.23,
         "deg": 229.501
       },
       "rain": {
@@ -1375,6 +1272,39 @@ export const response = `{
         "pod": "d"
       },
       "dt_txt": "2016-08-18 18:00:00"
+    },
+    {
+      "dt": 1471554000,
+      "main": {
+        "temp": 301.286,
+        "temp_min": 301.286,
+        "temp_max": 301.286,
+        "pressure": 998.82,
+        "sea_level": 1029,
+        "grnd_level": 998.82,
+        "humidity": 81,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "clouds": {
+        "all": 32
+      },
+      "wind": {
+        "speed": 1.61,
+        "deg": 277.001
+      },
+      "rain": {},
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2016-08-18 21:00:00"
     }
   ]
 }`;
