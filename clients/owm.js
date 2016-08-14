@@ -22,14 +22,21 @@ export const utils = {
   }
 };
 
-export function getCurrent(city) {
-  let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(city);
+export class Client {
+  constructor(options) {
+    this.baseUrl = options.baseUrl || 'http://api.openweathermap.org/data/2.5';
+    this.appid = options.appid;
+  }
 
-  return utils.jsonp(url);
-}
+  getCurrent(city) {
+    let url = `${this.baseUrl}/weather?q=${encodeURIComponent(city)}&appid=${encodeURIComponent(this.appid)}`;
 
-export function getForecast(city) {
-  let url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + encodeURIComponent(city);
+    return utils.jsonp(url);
+  }
 
-  return utils.jsonp(url);
+  getForecast(city) {
+    let url = `${this.baseUrl}/forecast?q=${encodeURIComponent(city)}&appid=${encodeURIComponent(this.appid)}`;
+
+    return utils.jsonp(url);
+  }
 }
