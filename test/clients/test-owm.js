@@ -1,5 +1,8 @@
 import Client, {
   high,
+  lat,
+  latlon,
+  lon,
   low,
   utils,
 } from '../../clients/owm';
@@ -71,11 +74,6 @@ describe('OpenWeatherMap#getForecast', function() {
     });
   });
 
-  describe('temperature', function () {
-    it('gets the current temperature');
-    it('throws an error if the resource does not have a temperature');
-  });
-
   describe('high', function () {
     it('gets the current high temperature', function () {
       assert.equal(high(currentResponseJSON), 305.93);
@@ -83,6 +81,33 @@ describe('OpenWeatherMap#getForecast', function() {
 
     it('gets the forecasted high temperature', function () {
       assert.equal(high(forecastResponseJSON), 304.121);
+    });
+  });
+
+  describe('lat', function () {
+    it('gets the latitude of the current report', function () {
+      assert.equal(lat(currentResponseJSON), 34.36);
+    });
+    it('gets the latitude of the forecast report', function () {
+      assert.equal(lat(forecastResponseJSON), 34.35815);
+    });
+  });
+
+  describe('latlon', function () {
+    it('gets the latitude and longitude of the current report', function () {
+      assert.deepEqual(latlon(currentResponseJSON), [34.36, -86.29]);
+    });
+    it('gets the latitude and longitude of the forecast report', function () {
+      assert.deepEqual(latlon(forecastResponseJSON), [34.35815, -86.294701]);
+    });
+  });
+
+  describe('lon', function () {
+    it('gets the longitude of the current report', function () {
+      assert.equal(lon(currentResponseJSON), -86.29);
+    });
+    it('gets the longitude of the forecast report', function () {
+      assert.equal(lon(forecastResponseJSON), -86.294701);
     });
   });
 
@@ -94,5 +119,10 @@ describe('OpenWeatherMap#getForecast', function() {
     it('gets the forecasted low temperature', function () {
       assert.equal(low(forecastResponseJSON), 293.725);
     });
+  });
+
+  describe('temperature', function () {
+    it('gets the current temperature');
+    it('throws an error if the resource does not have a temperature');
   });
 });

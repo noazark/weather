@@ -22,6 +22,26 @@ export default class {
   }
 }
 
+export function lat(resource) {
+  if (resource.hasOwnProperty('coord')) {
+    return resource['coord']['lat'];
+  } else {
+    return resource['city']['coord']['lat'];
+  }
+}
+
+export function latlon(resource) {
+  return [lat(resource), lon(resource)];
+}
+
+export function lon(resource) {
+  if (resource.hasOwnProperty('coord')) {
+    return resource['coord']['lon'];
+  } else {
+    return resource['city']['coord']['lon'];
+  }
+}
+
 export function high(resource) {
   let getHigh = (r) => r['main']['temp_max'];
 
