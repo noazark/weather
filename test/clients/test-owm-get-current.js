@@ -21,4 +21,12 @@ describe('OpenWeatherMap#getCurrent', function() {
         sinon.assert.calledWith(this.jsonp, url);
       });
   });
+
+  it('parses a JSON response into an object', function () {
+    return this.client.getCurrent()
+      .then((data) => {
+        assert.isObject(data);
+        assert.equal(data.id, 4065649);
+      });
+  });
 });

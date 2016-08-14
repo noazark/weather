@@ -28,15 +28,20 @@ export class Client {
     this.appid = options.appid;
   }
 
+  _getJSON(url) {
+    return utils.jsonp(url)
+      .then((response) => JSON.parse(response));
+  }
+
   getCurrent(city) {
     let url = `${this.baseUrl}/weather?q=${encodeURIComponent(city)}&appid=${encodeURIComponent(this.appid)}`;
 
-    return utils.jsonp(url);
+    return this._getJSON(url);
   }
 
   getForecast(city) {
     let url = `${this.baseUrl}/forecast?q=${encodeURIComponent(city)}&appid=${encodeURIComponent(this.appid)}`;
 
-    return utils.jsonp(url);
+    return this._getJSON(url);
   }
 }
