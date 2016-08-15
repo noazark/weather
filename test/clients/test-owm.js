@@ -6,6 +6,7 @@ import Client, {
   lon,
   low,
   startsAt,
+  temperature,
   utils,
 } from '../../clients/owm';
 import {response as currentResponse} from './fixtures/get-current';
@@ -144,7 +145,14 @@ describe('OpenWeatherMap#getForecast', function() {
   });
 
   describe('temperature', function () {
-    it('gets the current temperature');
-    it('throws an error if the resource does not have a temperature');
+    it('gets the current temperature', function () {
+      assert.equal(temperature(currentResponseJSON), 304.06);
+    });
+
+    it('throws an error if the resource does not have a temperature', function () {
+      assert.throws(() => {
+        temperature(forecastResponseJSON);
+      });
+    });
   });
 });

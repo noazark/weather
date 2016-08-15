@@ -82,6 +82,14 @@ export function startsAt(resource) {
   }
 }
 
+export function temperature(resource) {
+  if (!resource.hasOwnProperty('list')) {
+    return resource['main']['temp'];
+  } else {
+    throw new Error('Cannot use temperature() on a forecast, use high() or low()');
+  }
+}
+
 export const utils = {
   jsonp(uri) {
     return new Promise(function (resolve, reject) {
