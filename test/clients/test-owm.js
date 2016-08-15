@@ -1,9 +1,11 @@
 import Client, {
+  endsAt,
   high,
   lat,
   latlon,
   lon,
   low,
+  startsAt,
   utils,
 } from '../../clients/owm';
 import {response as currentResponse} from './fixtures/get-current';
@@ -74,6 +76,16 @@ describe('OpenWeatherMap#getForecast', function() {
     });
   });
 
+  describe('endsAt', function () {
+    it('gets the ending time of the current report', function () {
+      assert.deepEqual(endsAt(currentResponseJSON), new Date(1471114235000));
+    });
+
+    it('gets the ending time of forecasted report', function () {
+      assert.deepEqual(endsAt(forecastResponseJSON), new Date(1471554000000));
+    });
+  });
+
   describe('high', function () {
     it('gets the current high temperature', function () {
       assert.equal(high(currentResponseJSON), 305.93);
@@ -118,6 +130,16 @@ describe('OpenWeatherMap#getForecast', function() {
 
     it('gets the forecasted low temperature', function () {
       assert.equal(low(forecastResponseJSON), 293.725);
+    });
+  });
+
+  describe('startsAt', function () {
+    it('gets the starting time of the current report', function () {
+      assert.deepEqual(startsAt(currentResponseJSON), new Date(1471114235000));
+    });
+
+    it('gets the starting time of forecasted report', function () {
+      assert.deepEqual(startsAt(forecastResponseJSON), new Date(1471154400000));
     });
   });
 

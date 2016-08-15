@@ -22,6 +22,16 @@ export default class {
   }
 }
 
+export function endsAt(resource) {
+  let getTime = (r) => r['dt'] * 1000;
+
+  if (resource.hasOwnProperty('list')) {
+    return new Date(Math.max(...resource['list'].map(getTime)));
+  } else {
+    return new Date(getTime(resource));
+  }
+}
+
 export function lat(resource) {
   if (resource.hasOwnProperty('coord')) {
     return resource['coord']['lat'];
@@ -59,6 +69,16 @@ export function low(resource) {
     return Math.min(...resource['list'].map(getLow));
   } else {
     return getLow(resource);
+  }
+}
+
+export function startsAt(resource) {
+  let getTime = (r) => r['dt'] * 1000;
+
+  if (resource.hasOwnProperty('list')) {
+    return new Date(Math.min(...resource['list'].map(getTime)));
+  } else {
+    return new Date(getTime(resource));
   }
 }
 
