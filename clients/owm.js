@@ -53,22 +53,22 @@ export function lon(resource) {
 }
 
 export function high(resource) {
-  let getHigh = (r) => r['main']['temp_max'];
+  let getHigh = (r) => r['main']['temp'];
 
   if (resource.hasOwnProperty('list')) {
     return Math.max(...resource['list'].map(getHigh));
   } else {
-    return getHigh(resource);
+    throw new Error('Cannot use high() on with the Current API, use high() or low()');
   }
 }
 
 export function low(resource) {
-  let getLow = (r) => r['main']['temp_min'];
+  let getLow = (r) => r['main']['temp'];
 
   if (resource.hasOwnProperty('list')) {
     return Math.min(...resource['list'].map(getLow));
   } else {
-    return getLow(resource);
+    throw new Error('Cannot use high() on with the Current API, use high() or low()');
   }
 }
 
@@ -83,10 +83,12 @@ export function startsAt(resource) {
 }
 
 export function temperature(resource) {
+  let getTemp = (r) => r['main']['temp'];
+
   if (!resource.hasOwnProperty('list')) {
-    return resource['main']['temp'];
+    return getTemp(resource);
   } else {
-    throw new Error('Cannot use temperature() on a forecast, use high() or low()');
+    return resource['list'].map(getTemp);
   }
 }
 

@@ -88,11 +88,13 @@ describe('OpenWeatherMap#getForecast', function() {
   });
 
   describe('high', function () {
-    it('gets the current high temperature', function () {
-      assert.equal(high(currentResponseJSON), 305.93);
+    it('throws an error if the resource does not have a high', function () {
+      assert.throws(() => {
+        high(currentResponseJSON);
+      });
     });
 
-    it('gets the forecasted high temperature', function () {
+    it('gets the forecast high temperature', function () {
       assert.equal(high(forecastResponseJSON), 304.121);
     });
   });
@@ -125,11 +127,13 @@ describe('OpenWeatherMap#getForecast', function() {
   });
 
   describe('low', function () {
-    it('gets the current low temperature', function () {
-      assert.equal(low(currentResponseJSON), 302.59);
+    it('throws an error if the resource does not have a low', function () {
+      assert.throws(() => {
+        low(currentResponseJSON);
+      });
     });
 
-    it('gets the forecasted low temperature', function () {
+    it('gets the forecast low temperature', function () {
       assert.equal(low(forecastResponseJSON), 293.725);
     });
   });
@@ -150,9 +154,7 @@ describe('OpenWeatherMap#getForecast', function() {
     });
 
     it('throws an error if the resource does not have a temperature', function () {
-      assert.throws(() => {
-        temperature(forecastResponseJSON);
-      });
+      assert.deepEqual(temperature(forecastResponseJSON), [296.53,296.27,296.95,298.95,301.871,303.501,301.717,299.639,298.069,296.569,296.227,301.539,304.121,303.271,301.579,300.372,299.406,299.18,298.679,299.781,300.356,301.481,298.981,296.499,295.246,293.725,294.236,296.594,297.959,297.92,296.823,294.697,293.958,294.552,294.052,295.594,299.799,301.286]);
     });
   });
 });
