@@ -28,8 +28,8 @@ Weather.js works in the browser and node.js. Take your pick. For the
 browser, [download the most recent version on GitHub][Weather.js]. For use in
 node, just install using NPM.
 
-```
-npm install -g weather.js
+```bash
+npm install --save weather.js
 ```
 
 ## Usage
@@ -38,17 +38,17 @@ At the moment you can access the current weather conditions and the
 forecast for any city. By default it will use the closest match as
 returned by Open Weather Map.
 
-```javascript
-Weather.getCurrent("Kansas City", function(current) {
+```js
+Weather.getCurrent("Kansas City", (current) => {
   console.log(
-    ["currently:",current.temperature(),"and",current.conditions()].join(" ")
+    `currently ${current.temperature()} and ${current.conditions()}`
   );
 });
 
-Weather.getForecast("Kansas City", function(forecast) {
-  console.log("Forecast High in Kelvin: " + forecast.high());
-  console.log("Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit(forecast.high()));
-  console.log("Forecast High in Celsius" + Weather.kelvinToCelsius(forecast.high()));
+Weather.getForecast("Kansas City", (forecast) => {
+  console.log(`Forecast High in Kelvin: `${forecast.high()});
+  console.log(`Forecast High in Fahrenheit: ${Weather.kelvinToFahrenheit(forecast.high())}`);
+  console.log(`Forecast High in Celsius: ${Weather.kelvinToCelsius(forecast.high())}`);
 });
 ```
 
