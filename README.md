@@ -17,7 +17,7 @@ Weather.js is still in early development so expect changes and please
 contribute! Among the features I hope to incorporate:
 
 -   historical weather information
--   API key usage
+-   API key usage (but there is a beta version!)
 -   more data sources
 -   more conversions!
 
