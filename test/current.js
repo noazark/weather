@@ -7,6 +7,7 @@ if(isModule) {
 }
 
 var current;
+var myAPIKey = 'sdaqkj210982hkd96akj21987skjggha'; // put your own apikey here. This one is invalid
 
 describe("Current", function() {
   before(function () {
@@ -16,6 +17,7 @@ describe("Current", function() {
   })
 
   before(function () {
+    Weather.setApiKey(myAPIKey);
     current = new Weather.Current({
       list: [
         {
