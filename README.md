@@ -2,7 +2,7 @@ Weather.js
 ==========
 
 [![Build Status](https://secure.travis-ci.org/noazark/weather.svg?branch=master)](https://travis-ci.org/noazark/weather)
-[![npm](https://img.shields.io/npm/v/weather.js.svg?maxAge=2592000)](https://www.npmjs.com/package/weather.js)
+[![npm](https://img.shields.io/npm/v/weather.js.svg)](https://www.npmjs.com/package/weather.js)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/noazark/weather/master/LICENSE)
 
 
