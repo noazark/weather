@@ -24,7 +24,9 @@ describe("Current", function () {
           main: {
             temp: 290.88,
             temp_min: 289.82,
-            temp_max: 294.82
+            temp_max: 294.82,
+            pressure: 1012,
+            humidity: 81
           },
           weather: [
             {
@@ -51,6 +53,26 @@ describe("Current", function () {
   describe("temperature", function () {
     it("temperature", function () {
       expect(current.temperature()).to.eql('290.88');
+    });
+
+    it("min temperature", function () {
+      expect(current.minTemperature()).to.eql('289.82');
+    });
+
+    it("max temperature", function () {
+      expect(current.maxTemperature()).to.eql('294.82');
+    });
+  });
+
+  describe("pressure", function () {
+    it("pressure", function () {
+      expect(current.pressure()).to.eql('1012');
+    });
+  });
+
+  describe("humidity", function () {
+    it("humidity", function () {
+      expect(current.humidity()).to.eql('81');
     });
   });
 
