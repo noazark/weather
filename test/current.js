@@ -1,6 +1,6 @@
 isModule = (typeof module !== "undefined" && module.exports)
 
-if(isModule) {
+if (isModule) {
   expect = require('expect.js')
   sinon = require('sinon')
   Weather = require('../lib/weather')
@@ -9,7 +9,7 @@ if(isModule) {
 var current;
 var myAPIKey = 'sdaqkj210982hkd96akj21987skjggha'; // put your own apikey here. This one is invalid
 
-describe("Current", function() {
+describe("Current", function () {
   before(function () {
     sinon.stub(Weather, '_getJSON', function (url, callback) {
       callback('{}')
@@ -41,22 +41,36 @@ describe("Current", function() {
     Weather._getJSON.restore()
   });
 
-  it("creates `Current` weather conditions", function(done) {
-    Weather.getCurrent('Kansas City', function(current) {
+  it("creates `Current` weather conditions", function (done) {
+    Weather.getCurrent('Kansas City', function (current) {
       expect(current).to.be.a(Weather.Current)
       done();
     });
   });
 
-  describe("temperature", function() {
-    it("temperature", function() {
+  describe("temperature", function () {
+    it("temperature", function () {
       expect(current.temperature()).to.eql('290.88');
     });
   });
 
-  describe("conditions", function() {
-    it("conditions", function() {
-      expect(current.conditions()).to.eql('sky is clear');
+  describe("conditions", function () {
+
+    it("conditions", function () {
+      expect(current.conditions()).to.eql([
+        {
+          main: "Clear",
+          description: "sky is clear"
+        }
+      ]);
+    });
+
+    it("conditionsGroup", function () {
+      expect(current.conditionsGroup()).to.eql(['Clear']);
+    });
+
+    it("conditionsDescription", function () {
+      expect(current.conditionsDescription()).to.eql(['sky is clear']);
     });
   });
 });
