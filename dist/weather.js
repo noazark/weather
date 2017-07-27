@@ -1,7 +1,7 @@
 var isModule = typeof module !== "undefined" && module.exports;
 
 if (isModule) {
-  http = require('http');
+  request = require('request');
   URL = require('url');
 }
 
@@ -57,7 +57,7 @@ Weather.getCurrent = function (city, callback) {
   }
 
   return this._getJSON(url, function (data) {
-    callback(new Weather.Current(data));
+    callback(new Weather.Current(JSON.parse(data)));
   });
 };
 
@@ -77,8 +77,8 @@ Weather.getForecast = function (city, callback) {
 
 Weather._getJSON = function (url, callback) {
   if (isModule) {
-    return http.get(URL.parse(url), function (response) {
-      return callback(response.body);
+    request(url, function (error, response, body) {
+      return callback(body);
     });
   } else {
     jsonp(url).then(callback);
