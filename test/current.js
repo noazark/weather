@@ -44,7 +44,7 @@ describe("Current", function () {
   });
 
   it("creates `Current` weather conditions", function (done) {
-    Weather.getCurrent('Kansas City', function (current) {
+    Weather.getCurrentByCityCountry('Kansas City', 'US', function (current) {
       expect(current).to.be.a(Weather.Current)
       done();
     });

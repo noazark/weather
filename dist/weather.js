@@ -47,8 +47,22 @@ Weather.kelvinToCelsius = function (value) {
   return value - 273.15;
 };
 
-Weather.getCurrent = function (city, callback) {
-  var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + encodeURIComponent(city) + "&cnt=1";
+Weather.getCurrentByCityCountry = function (city, country, callback) {
+  var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + encodeURIComponent(city) + "," + encodeURIComponent(country) + "&cnt=1";
+
+  if (Weather.APIKEY) {
+    url = url + "&APPID=" + Weather.APIKEY;
+  } else {
+    console.log('WARNING: You must set an apiKey for openweathermap');
+  }
+
+  return this._getJSON(url, function (data) {
+    callback(new Weather.Current(JSON.parse(data)));
+  });
+};
+
+Weather.getCurrentByLatLon = function (lat, lon, callback) {
+  var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + encodeURIComponent(lat) + "&lon=" + encodeURIComponent(lon) + "&cnt=1";
 
   if (Weather.APIKEY) {
     url = url + "&APPID=" + Weather.APIKEY;
