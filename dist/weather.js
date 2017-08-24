@@ -1,23 +1,23 @@
 var isModule = typeof module !== "undefined" && module.exports;
 
 if (isModule) {
-  http = require('http');
+  request = require('request');
   URL = require('url');
 }
 
-var Weather = {Utils: {}};
+var Weather = { Utils: {} };
 
 Weather.VERSION = "0.0.3";
 
-var jsonp = Weather.Utils.jsonp = function (uri, callback){
-  return new Promise(function(resolve, reject){
+var jsonp = Weather.Utils.jsonp = function (uri, callback) {
+  return new Promise(function (resolve, reject) {
     var id = '_' + Math.round(10000 * Math.random());
     var callbackName = 'jsonp_callback_' + id;
     var el = (document.getElementsByTagName('head')[0] || document.body || document.documentElement);
     var script = document.createElement('script');
     var src = uri + '&callback=' + callbackName;
 
-    window[callbackName] = function(data){
+    window[callbackName] = function (data) {
       delete window[callbackName];
       var ele = document.getElementById(id);
       ele.parentNode.removeChild(ele);
@@ -28,7 +28,7 @@ var jsonp = Weather.Utils.jsonp = function (uri, callback){
     script.id = id;
     script.addEventListener('error', reject);
     el.appendChild(script);
-  } );
+  });
 };
 
 Weather.setApiKey = function (apiKey) {
@@ -47,8 +47,8 @@ Weather.kelvinToCelsius = function (value) {
   return value - 273.15;
 };
 
-Weather.getCurrent = function (city, callback) {
-  var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + encodeURIComponent(city) + "&cnt=1";
+Weather.getCurrentByCityCountry = function (city, country, callback) {
+  var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + encodeURIComponent(city) + "," + encodeURIComponent(country) + "&cnt=1";
 
   if (Weather.APIKEY) {
     url = url + "&APPID=" + Weather.APIKEY;
@@ -57,8 +57,22 @@ Weather.getCurrent = function (city, callback) {
   }
 
   return this._getJSON(url, function (data) {
-    callback(new Weather.Current(data));
-  } );
+    callback(new Weather.Current(JSON.parse(data)));
+  });
+};
+
+Weather.getCurrentByLatLon = function (lat, lon, callback) {
+  var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + encodeURIComponent(lat) + "&lon=" + encodeURIComponent(lon) + "&cnt=1";
+
+  if (Weather.APIKEY) {
+    url = url + "&APPID=" + Weather.APIKEY;
+  } else {
+    console.log('WARNING: You must set an apiKey for openweathermap');
+  }
+
+  return this._getJSON(url, function (data) {
+    callback(new Weather.Current(JSON.parse(data)));
+  });
 };
 
 Weather.getForecast = function (city, callback) {
@@ -72,14 +86,14 @@ Weather.getForecast = function (city, callback) {
 
   return this._getJSON(url, function (data) {
     callback(new Weather.Forecast(data));
-  } );
+  });
 };
 
-Weather._getJSON = function( url, callback ) {
+Weather._getJSON = function (url, callback) {
   if (isModule) {
-    return http.get(URL.parse(url), function(response) {
-      return callback(response.body);
-    } );
+    request(url, function (error, response, body) {
+      return callback(body);
+    });
   } else {
     jsonp(url).then(callback);
   }
@@ -146,7 +160,7 @@ Weather.Forecast.prototype.low = function () {
 
   var output = minBy(this.data.list, function (item) {
     return item.main.temp_min;
-  } );
+  });
 
   return output.main.temp_min;
 };
@@ -154,9 +168,9 @@ Weather.Forecast.prototype.low = function () {
 Weather.Forecast.prototype.high = function () {
   if (this.data.list.length === 0) return;
 
-  var output = maxBy( this.data.list, function (item) {
+  var output = maxBy(this.data.list, function (item) {
     return item.main.temp_max;
-  } );
+  });
 
   return output.main.temp_max;
 };
@@ -181,8 +195,39 @@ Weather.Current.prototype.temperature = function () {
   return this.data.list[0].main.temp;
 };
 
+Weather.Current.prototype.minTemperature = function () {
+  return this.data.list[0].main.temp_min;
+};
+
+Weather.Current.prototype.maxTemperature = function () {
+  return this.data.list[0].main.temp_max;
+};
+
+Weather.Current.prototype.pressure = function () {
+  return this.data.list[0].main.pressure;
+};
+
+Weather.Current.prototype.humidity = function () {
+  return this.data.list[0].main.humidity;
+};
+
 Weather.Current.prototype.conditions = function () {
-  return this.data.list[0].weather[0].description;
+  var conditions = this.data.list[0].weather;
+  return conditions;
+};
+
+Weather.Current.prototype.conditionsDescription = function () {
+  var conditions = this.data.list[0].weather;
+  return conditions.map(function (condition) {
+    return condition.description;
+  });
+};
+
+Weather.Current.prototype.conditionsGroup = function () {
+  var conditions = this.data.list[0].weather;
+  return conditions.map(function (condition) {
+    return condition.main;
+  });
 };
 
 if (isModule) { module.exports = Weather; }
