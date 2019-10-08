@@ -26,24 +26,15 @@
         </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../weather.js"></script>
     <script>
+        
         Weather.getCurrent( "Guntersville", function( current ) {
-            $( "#current" ).html( "Temperature: " + current.temperature() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( current.temperature() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( current.temperature() ) + "&deg;C" +
-                "<br />Current Conditions: " + current.conditions() );
+            document.querySelector('#current').innerHTML = "Temperature: " + current.temperature() + "&deg;K or " + Weather.kelvinToFahrenheit( current.temperature() ) + "&deg;F or " + Weather.kelvinToCelsius( current.temperature() ) + "&deg;C" + "<br />Current Conditions: " + current.conditions();
         });
-
+        
         Weather.getForecast( "Guntersville", function ( forecast ) {
-            $( "#forecast" ).html( "High: " + forecast.high() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " +
-                forecast.low() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( forecast.low() ) + "&deg;C" );
+            document.querySelector("#forecast").innerHTML = "High: " + forecast.high() + "&deg;K or " + Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " + Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " + forecast.low() + "&deg;K or " + Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " + Weather.kelvinToCelsius( forecast.low() ) + "&deg;C";
         });
     </script>
   </body>
