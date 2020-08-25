@@ -12,7 +12,7 @@ export default class {
   getCurrent( city ) {
     let url = `${this.baseUrl}/weather?q=${encodeURIComponent( city )}&appid=${encodeURIComponent( this.appid )}`;
 
-    return this._getJSON(url);
+    return this._getJSON( url );
   }
 
   getForecast( city ) {
@@ -26,7 +26,7 @@ export function endsAt( resource ) {
   let getTime = ( r ) => r[ 'dt' ] * 1000;
 
   if ( resource.hasOwnProperty( 'list' ) ) {
-    return new Date( Math.max(...resource[ 'list' ].map( getTime ) ) );
+    return new Date( Math.max( ...resource[ 'list' ].map( getTime ) ) );
   } else {
     return new Date( getTime( resource ) );
   }
@@ -56,7 +56,7 @@ export function high( resource ) {
   let getHigh = ( r ) => r[ 'main' ][ 'temp' ];
 
   if ( resource.hasOwnProperty( 'list' ) ) {
-    return Math.max(...resource[ 'list' ].map( getHigh ) );
+    return Math.max( ...resource[ 'list' ].map( getHigh ) );
   } else {
     throw new Error( 'Cannot use high() on with the Current API, use high() or low()' );
   }
@@ -66,7 +66,7 @@ export function low( resource ) {
   let getLow = ( r ) => r[ 'main' ][ 'temp' ];
 
   if ( resource.hasOwnProperty( 'list' ) ) {
-    return Math.min(...resource[ 'list' ].map( getLow ) );
+    return Math.min( ...resource[ 'list' ].map( getLow ) );
   } else {
     throw new Error( 'Cannot use high() on with the Current API, use high() or low()' );
   }
@@ -76,7 +76,7 @@ export function startsAt( resource ) {
   let getTime = ( r ) => r[ 'dt' ] * 1000;
 
   if ( resource.hasOwnProperty( 'list' ) ) {
-    return new Date( Math.min(...resource[ 'list' ].map( getTime ) ) );
+    return new Date( Math.min( ...resource[ 'list' ].map( getTime ) ) );
   } else {
     return new Date( getTime( resource ) );
   }
@@ -85,7 +85,7 @@ export function startsAt( resource ) {
 export function temperature( resource ) {
   let getTemp = ( r ) => r[ 'main' ][ 'temp' ];
 
-  if (!resource.hasOwnProperty( 'list' ) ) {
+  if ( !resource.hasOwnProperty( 'list' ) ) {
     return getTemp( resource );
   } else {
     return resource[ 'list' ].map( getTemp );
@@ -97,11 +97,11 @@ export const utils = {
     return new Promise( function ( resolve, reject ) {
       let id = `_${Math.round( 10000 * Math.random() )}`;
       let callbackName = `jsonp_callback_${id}`;
-      let el = (document.getElementsByTagName( 'head' )[ 0 ] || document.body || document.documentElement );
+      let el = ( document.getElementsByTagName( 'head' )[ 0 ] || document.body || document.documentElement );
       let script = document.createElement( 'script' );
       let src = uri + '&callback=' + callbackName;
 
-      window[ callbackName ] = function( data ){
+      window[ callbackName ] = function ( data ) {
         delete window[ callbackName ];
         let el = document.getElementById( id );
         el.parentNode.removeChild( el );
@@ -110,7 +110,7 @@ export const utils = {
 
       script.src = src;
       script.id = id;
-      script.addEventListener( 'error', () => reject(new Error( 'Request failed' ) ) );
+      script.addEventListener( 'error', () => reject( new Error( 'Request failed' ) ) );
       el.appendChild( script );
     } );
   }
