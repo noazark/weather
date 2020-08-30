@@ -3,15 +3,13 @@
         "browser": true,
         "commmonjs": true,
         "es6": true,
-        "node": true,
-        "mocha": true
+        "node": true
     },
     "extends": "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
-        "assert": true,
-        "sinon": true
+        "assert": true
     },
     "parserOptions": {
         "ecmaVersion": 11,
