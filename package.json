@@ -1,32 +1,37 @@
 {
-  "name": "weather.js",
-  "version": "0.0.3",
-  "description": "A conclusive JavaScript weather library.",
-  "homepage": "http://weatherjs.com",
-  "author": "Noah H. Smith <noah@batteredoats.com> (http://noazark.github.com/)",
-  "keywords": [
-    "weather"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/noazark/weather.git"
-  },
-  "bugs": {
-    "url": "https://github.com/noazark/weather/issues"
-  },
-  "main": "./weather.js",
-  "license": "MIT",
-  "scripts": {
-    "test": "jest --clearCache && jest",
-    "test-watch": "jest --clearCache && jest --watch"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@types/jest": "^26.0.10",
-    "babel-jest": "^26.3.0",
-    "eslint": "7.7.0",
-    "eslint-plugin-jest": "^23.20.0",
-    "jest": "^26.4.2"
-  }
+    "name": "weather.js",
+    "version": "0.0.3",
+    "description": "A conclusive JavaScript weather library.",
+    "homepage": "http://weatherjs.com",
+    "author": "Noah H. Smith <noah@batteredoats.com> (http://noazark.github.com/)",
+    "keywords": [
+        "weather"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/noazark/weather.git"
+    },
+    "bugs": {
+        "url": "https://github.com/noazark/weather/issues"
+    },
+    "main": "./weather.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest --clearCache && jest",
+        "test-watch": "jest --clearCache && jest --watch"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/preset-env": "^7.11.0",
+        "@types/jest": "^26.0.10",
+        "babel-jest": "^26.3.0",
+        "eslint": "7.7.0",
+        "eslint-plugin-jest": "^23.20.0",
+        "jest": "^26.4.2"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    }
 }
