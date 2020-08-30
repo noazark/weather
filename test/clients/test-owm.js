@@ -1,14 +1,4 @@
-import Client, {
-    endsAt,
-    high,
-    lat,
-    latlon,
-    lon,
-    low,
-    startsAt,
-    temperature,
-    utils,
-} from '../../clients/owm';
+import Client, { endsAt, high, lat, latlon, lon, low, startsAt, temperature, utils, } from '../../src/clients/owm';
 import { response as currentResponse } from './fixtures/get-current';
 import { response as forecastResponse } from './fixtures/get-forecast';
 import sinon from 'sinon';
@@ -23,7 +13,7 @@ describe( 'OpenWeatherMap#getForecast', function () {
 
     describe( '#getCurrent', function () {
         before( function () {
-            this.jsonp = sinon.stub( utils, 'jsonp', function () {
+            this.jsonp = sinon.stub( utils, 'jsonp' ).callsFake( function () {
                 return new Promise( ( resolve ) => resolve( currentResponse ) );
             } );
         } );
@@ -51,7 +41,7 @@ describe( 'OpenWeatherMap#getForecast', function () {
 
     describe( '#getForecast', function () {
         before( function () {
-            this.jsonp = sinon.stub( utils, 'jsonp', function () {
+            this.jsonp = sinon.stub( utils, 'jsonp' ).callsFake( function () {
                 return new Promise( ( resolve ) => resolve( forecastResponse ) );
             } );
         } );
@@ -110,10 +100,10 @@ describe( 'OpenWeatherMap#getForecast', function () {
 
     describe( 'latlon', function () {
         it( 'gets the latitude and longitude of the current report', function () {
-            assert.deepEqual( latlon( currentResponseJSON ), [ 34.36, -86.29 ] );
+            assert.deepEqual( latlon( currentResponseJSON ), [34.36, -86.29] );
         } );
         it( 'gets the latitude and longitude of the forecast report', function () {
-            assert.deepEqual( latlon( forecastResponseJSON ), [ 34.35815, -86.294701 ] );
+            assert.deepEqual( latlon( forecastResponseJSON ), [34.35815, -86.294701] );
         } );
     } );
 
@@ -154,7 +144,7 @@ describe( 'OpenWeatherMap#getForecast', function () {
         } );
 
         it( 'throws an error if the resource does not have a temperature', function () {
-            assert.deepEqual( temperature( forecastResponseJSON ), [ 296.53, 296.27, 296.95, 298.95, 301.871, 303.501, 301.717, 299.639, 298.069, 296.569, 296.227, 301.539, 304.121, 303.271, 301.579, 300.372, 299.406, 299.18, 298.679, 299.781, 300.356, 301.481, 298.981, 296.499, 295.246, 293.725, 294.236, 296.594, 297.959, 297.92, 296.823, 294.697, 293.958, 294.552, 294.052, 295.594, 299.799, 301.286 ] );
+            assert.deepEqual( temperature( forecastResponseJSON ), [296.53, 296.27, 296.95, 298.95, 301.871, 303.501, 301.717, 299.639, 298.069, 296.569, 296.227, 301.539, 304.121, 303.271, 301.579, 300.372, 299.406, 299.18, 298.679, 299.781, 300.356, 301.481, 298.981, 296.499, 295.246, 293.725, 294.236, 296.594, 297.959, 297.92, 296.823, 294.697, 293.958, 294.552, 294.052, 295.594, 299.799, 301.286] );
         } );
     } );
 } );

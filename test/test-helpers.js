@@ -5,7 +5,7 @@ import {
     fahrenheitToKelvin,
     kelvinToCelsius,
     kelvinToFahrenheit,
-} from '../helpers';
+} from '../src/helpers/helpers';
 
 describe( 'Helpers', function () {
     describe( '#celsiusToFahrenheit', function () {
