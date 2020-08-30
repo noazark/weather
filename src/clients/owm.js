@@ -20,7 +20,6 @@ export default class {
 
         return this._getJSON( url );
     }
-
 }
 
 export function endsAt( resource ) {
@@ -96,14 +95,14 @@ export function temperature( resource ) {
 
 export const utils = {
     jsonp( uri ) {
-        return new Promise( function ( resolve, reject ) {
+        return new Promise( function( resolve, reject ) {
             let id = `_${Math.round( 10000 * Math.random() )}`;
             let callbackName = `jsonp_callback_${id}`;
             let el = ( document.getElementsByTagName( 'head' )[ 0 ] || document.body || document.documentElement );
             let script = document.createElement( 'script' );
             let src = uri + '&callback=' + callbackName;
 
-            window[ callbackName ] = function ( data ) {
+            window[ callbackName ] = function( data ) {
                 delete window[ callbackName ];
                 let el = document.getElementById( id );
                 el.parentNode.removeChild( el );
