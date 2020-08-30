@@ -8,4 +8,18 @@ Weather.js
 
 ## About
 
-There really should be a conclusive JavaScript weather library. Weather.js fetches data from [OpenWeatherMap](http://openweathermap.org/) (no affiliation). Since other providers format their output differently, currently this is the only source provider.
+Weather.js was designed to be a conclusive JavaScript weather library built around the [OpenWeatherMap](http://openweathermap.org/) API (no affiliation). Since other providers format their output differently, currently OpenWeatherMap is the only source provider.
+
+
+Weather.js was originally created by [Noah Smith](https://github.com/noazark) and is currently maintained by [PallasStreams](https://github.com/PallasStreams).
+
+## Testing
+To run the JavaScript unit tests run:
+```bash
+npm run test
+```
+
+You can also have the test run automatically when a file changes while developing by running:
+```bash
+npm run test-watch
+```
