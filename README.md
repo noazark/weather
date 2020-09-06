@@ -15,6 +15,9 @@ Weather.js was designed to be a conclusive JavaScript weather library built arou
 
 Weather.js was originally created by [Noah Smith](https://github.com/noazark) and is currently maintained by [PallasStreams](https://github.com/PallasStreams).
 
+# Install
+Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
+
 ## Testing
 To run the JavaScript unit tests run:
 ```bash
@@ -25,9 +28,6 @@ You can also have the test run automatically when a file changes while developin
 ```bash
 npm run test-watch
 ```
-
-# Install
-Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
 
 # Usage
 At the moment you can access the current weather conditions and the forcast for any city. By default it will use the closes match as returned by OpenWeatherMap. More 
