@@ -10,6 +10,8 @@ Weather.js
 
 Weather.js was designed to be a conclusive JavaScript weather library built around the [OpenWeatherMap](http://openweathermap.org/) API (no affiliation). Since other providers format their output differently, currently OpenWeatherMap is the only source provider.
 
+**Note:** There are plans to add more providers in the future. If you have suggestions for other providers that you'd like to see please create a new [issue](https://github.com/noazark/weather/issues) with info about the provider and a link to the provider's API.
+
 
 Weather.js was originally created by [Noah Smith](https://github.com/noazark) and is currently maintained by [PallasStreams](https://github.com/PallasStreams).
 
@@ -22,4 +24,28 @@ npm run test
 You can also have the test run automatically when a file changes while developing by running:
 ```bash
 npm run test-watch
+```
+
+# Install
+Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
+
+# Usage
+At the moment you can access the current weather conditions and the forcast for any city. By default it will use the closes match as returned by OpenWeatherMap. More 
+
+```javascript
+import Client from 'weather.js';
+
+var client = new Client( { appid: 12345 } );
+
+// Get Currrent Weather for a city
+client.getCurrent( "Guntersville" )
+  .then( ( response ) => {
+      // do something with your JSON response
+  } );
+
+// Get the Forecast for a city
+client.getForecast( "Guntersville" )
+  .then( ( response ) => {
+      // do something with your JSON response
+  } );
 ```
