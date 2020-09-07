@@ -41,7 +41,7 @@ returned by Open Weather Map.
 ```javascript
 
 // API Key methods
-var apiKey = 12345;
+var apiKey = "12345";
 var Weather.setApiKey( apiKey );
 var tempApiKey = Weather.getApiKey();
 
