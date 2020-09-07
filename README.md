@@ -47,18 +47,23 @@ var tempApiKey = Weather.getApiKey();
 
 // Get current Weather for a given city
 Weather.getCurrent( "Kansas City", function( current ) {
-  console.log(
-    [ "Currently:", current.temperature(), "and", current.conditions() ].join( " " );
-  );
+    console.log(
+        [ "Currently:", current.temperature(), "and", current.conditions() ].join( " " );
+    );
 } );
 
 // Get the forecast for a given city
 Weather.getForecast( "Kansas City", function( forecast ) {
-  console.log( "Forecast High in Kelvin: " + forecast.high() );
-  console.log( "Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit( forecast.high() ) );
-  console.log( "Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() ) );
+    console.log( "Forecast High in Kelvin: " + forecast.high() );
+    console.log( "Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit( forecast.high() ) );
+    console.log( "Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() ) );
 } );
 
+Weather.getForecastByLatLong( 39.100, -94.579, function( forecast ) {
+    console.log( "Forecast High in Kelvin: " + forecast.high() );
+    console.log( "Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit( forecast.high() ) );
+    console.log( "Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() ) );
+} );
 ```
 
 [openweathermap.org]: http://openweathermap.org
