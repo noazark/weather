@@ -8,6 +8,7 @@ if ( isModule ) {
 
 var current;
 var myAPIKey = 'sdaqkj210982hkd96akj21987skjggha'; // put your own apikey here. This one is invalid
+var cityId = '4393217';
 
 describe( "Current", function () {
     before( function () {
@@ -39,6 +40,13 @@ describe( "Current", function () {
 
     it( "creates `Current` weather conditions", function ( done ) {
         Weather.getCurrent( 'Kansas City', function ( current ) {
+            expect( current ).to.be.a( Weather.Current );
+            done();
+        } );
+    } );
+
+    it( "creates `Current` weather conditions using city id", function ( done ) {
+        Weather.getCurrentByCityId( cityId, function ( current ) {
             expect( current ).to.be.a( Weather.Current );
             done();
         } );

@@ -7,6 +7,7 @@ if ( isModule ) {
 }
 
 var forecast;
+var cityId = '4393217';
 
 describe( "Forecast", function () {
     before( function () {
@@ -42,6 +43,13 @@ describe( "Forecast", function () {
 
     it( "creates a `Forecast`", function ( done ) {
         Weather.getForecast( 'Kansas City', function ( forecast ) {
+            expect( forecast ).to.be.a( Weather.Forecast );
+            done();
+        } );
+    } );
+
+    it( "creates a `Forecast`", function ( done ) {
+        Weather.getForecastByCityId( cityId, function ( forecast ) {
             expect( forecast ).to.be.a( Weather.Forecast );
             done();
         } );
