@@ -41,16 +41,17 @@ At the moment you can access the current weather conditions and the forcast for 
 ```javascript
 import Client from 'weather.js';
 
-var client = new Client( { appid: 12345 } );
+var apiKey = "12345";
+var client = new Client( { appid: apiKey } );
 
 // Get Currrent Weather for a city
-client.getCurrent( "Guntersville" )
+client.getCurrent( "Kansas City" )
   .then( ( response ) => {
       // do something with your JSON response
   } );
 
 // Get the Forecast for a city
-client.getForecast( "Guntersville" )
+client.getForecast( "Kansas City" )
   .then( ( response ) => {
       // do something with your JSON response
   } );
