@@ -1,4 +1,4 @@
-const { celsiusToFahrenheit, celsiusToKelvin, fahrenheitToCelsius, fahrenheitToKelvin, kelvinToCelsius, kelvinToFahrenheit } = require( '../helpers/helpers' );
+const { celsiusToFahrenheit, celsiusToKelvin, fahrenheitToCelsius, fahrenheitToKelvin, kelvinToCelsius, kelvinToFahrenheit } = require( '../../helpers/helpers' );
 
 describe( 'Helpers', () => {
     describe( '#celsiusToFahrenheit', () => {
