@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>weather.js</title>
 
-    <!-- Bootstrap - for styling purposes only -->
-    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+        }
 
-  </head>
-  <body>
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .container {
+            margin: auto;
+        }
+
+        /* Small Screen (Phone/Tablet) 768px-991px */
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        /* Desktop Screen (Medium Resolution) 992px-1199px */
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        /* Desktop Screen (Large Resolution) Greater Than 1200px */
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <div class="container">
+        <h1>Guntersville, AL</h1>
         <div class="row">
-            <h1 class="text-center">Guntersville, AL</h1>
-            <div class="col-sm-6">
+            <div class="column">
                 <h2>Current Conditions</h2>
-                <h3 id="current"></h3>
+                <p id="current"></p>
             </div>
-            <div class="col-sm-6">
-                <h2>Forecast</h1>
-                <h3 id="forecast"></h2>
+            <div class="column">
+                <h2>Forecast</h2>
+                <p id="forecast"></p>
             </div>
         </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../weather.js"></script>
+    <script src="../dist/weather.min.js"></script>
     <script>
-        Weather.getCurrent( "Guntersville", function( current ) {
-            $( "#current" ).html( "Temperature: " + current.temperature() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( current.temperature() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( current.temperature() ) + "&deg;C" +
-                "<br />Current Conditions: " + current.conditions() );
-        });
+        var apiKey = "12345"; // your api key goes here
+        Weather.setApiKey( apiKey );
+
+        Weather.getCurrent( "Guntersville", function ( current ) {
+            document.querySelector( '#current' ).innerHTML = "<b>Temperature:</b> " + Math.round( current.temperature() ) + " &deg;K or " +
+                Math.round( Weather.kelvinToFahrenheit( current.temperature() ) ) + " &deg;F or " +
+                Math.round( Weather.kelvinToCelsius( current.temperature() ) ) + " &deg;C" +
+                "<br /><b>Current Conditions:</b> " + current.conditions();
+        } );
 
         Weather.getForecast( "Guntersville", function ( forecast ) {
-            $( "#forecast" ).html( "High: " + forecast.high() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " +
-                forecast.low() + "&deg;K or " +
-                Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " +
-                Weather.kelvinToCelsius( forecast.low() ) + "&deg;C" );
-        });
+            document.querySelector( "#forecast" ).innerHTML = "<b>High:</b> " + Math.round( forecast.high() ) + " &deg;K or " +
+                Math.round( Weather.kelvinToFahrenheit( forecast.high() ) ) + " &deg;F or " +
+                Math.round( Weather.kelvinToCelsius( forecast.high() ) ) + " &deg;C<br /><b>Low:</b> " + Math.round( forecast.low() ) + " &deg;K or " +
+                Math.round( Weather.kelvinToFahrenheit( forecast.low() ) ) + " &deg;F or " +
+                Math.round( Weather.kelvinToCelsius( forecast.low() ) ) + " &deg;C";
+        } );
     </script>
-  </body>
+</body>
+
 </html>
