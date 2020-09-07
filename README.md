@@ -42,7 +42,7 @@ returned by Open Weather Map.
 
 // API Key methods
 var apiKey = "12345";
-var Weather.setApiKey( apiKey );
+Weather.setApiKey( apiKey );
 var tempApiKey = Weather.getApiKey();
 
 // Get current Weather for a given city
@@ -59,7 +59,10 @@ Weather.getForecast( "Kansas City", function( forecast ) {
     console.log( "Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() ) );
 } );
 
-Weather.getForecastByLatLong( 39.100, -94.579, function( forecast ) {
+// Get the forecast for a given city using the latitude and longitude
+var lat = 39.100,
+    long = -94.579;
+Weather.getForecastByLatLong( lat, long, function( forecast ) {
     console.log( "Forecast High in Kelvin: " + forecast.high() );
     console.log( "Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit( forecast.high() ) );
     console.log( "Forecast High in Celsius" + Weather.kelvinToCelsius( forecast.high() ) );
