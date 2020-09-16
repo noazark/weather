@@ -17,6 +17,7 @@
     "main": "./weather.js",
     "license": "MIT",
     "scripts": {
+        "bundle": "webpack --config webpack.config.js",
         "test": "jest --clearCache && jest",
         "test-watch": "jest --clearCache && jest --watch"
     },
