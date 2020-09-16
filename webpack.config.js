@@ -37,7 +37,7 @@ const backEndConfig = {
     mode: 'production',
     output: {
         path: path.resolve( __dirname, './dist/node' ),
-        filename: 'weather.js'
+        filename: 'weather.min.js'
     },
     externals: [ nodeExternals() ]
 }
