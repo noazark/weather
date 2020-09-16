@@ -1,5 +1,7 @@
 const path = require( 'path' );
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const nodeExternals = require( 'webpack-node-externals' );
+
 
 // Config to bundle files for Web (browser)
 const frontEndConfig = {
@@ -7,9 +9,10 @@ const frontEndConfig = {
     entry: {
         app: [ './weather.js' ]
     },
+    mode: 'production',
     output: {
-        path: path.resolve( __dirname, '../dist/web' ),
-        filename: 'weather.js',
+        path: path.resolve( __dirname, './dist/web' ),
+        filename: 'weather.min.js',
     },
     devServer: {
         host: '0.0.0.0', // Required for docker
@@ -19,7 +22,10 @@ const frontEndConfig = {
         compress: true,
         port: 9001
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
+    plugins: [
+        new UnminifiedWebpackPlugin()
+    ]
 }
 
 // Config to bundle files for NodeJS
@@ -28,8 +34,9 @@ const backEndConfig = {
     entry: {
         app: [ './weather.js' ]
     },
+    mode: 'production',
     output: {
-        path: path.resolve( __dirname, '../dist/node' ),
+        path: path.resolve( __dirname, './dist/node' ),
         filename: 'weather.js'
     },
     externals: [ nodeExternals() ]
