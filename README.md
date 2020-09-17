@@ -24,17 +24,19 @@ Weather.js was originally created by [Noah Smith](https://github.com/noazark) an
 ## Install
 Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
 
-```
+```bash
 npm install -g weather.js
 ```
 
 ## Testing
 To run the JavaScript unit tests run:
+
 ```bash
 npm run test
 ```
 
 You can also have the test run automatically when a file changes while developing by running:
+
 ```bash
 npm run test-watch
 ```
