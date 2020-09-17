@@ -24,6 +24,10 @@ Weather.js was originally created by [Noah Smith](https://github.com/noazark) an
 ## Install
 Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
 
+```
+npm install -g weather.js
+```
+
 ## Testing
 To run the JavaScript unit tests run:
 ```bash
@@ -36,7 +40,7 @@ npm run test-watch
 ```
 
 ## Usage
-At the moment you can access the current weather conditions and the forcast for any city. By default it will use the closes match as returned by OpenWeatherMap. More
+At the moment you can access the current weather conditions and the forcast for any city. By default it will use the closes match as returned by OpenWeatherMap.
 
 ```javascript
 import Client from 'weather.js';
