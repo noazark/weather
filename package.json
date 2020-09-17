@@ -39,7 +39,8 @@
     "uglify-js": "^2.6.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/grunt deploy && ./node_modules/.bin/mocha test && ./node_modules/.bin/karma start --single-run"
+    "bundle": "./node_modules/.bin/grunt deploy",
+    "test": "./node_modules/.bin/mocha test && ./node_modules/.bin/karma start --single-run"
   },
   "main": "./dist/weather.js"
 }
