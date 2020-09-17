@@ -8,35 +8,35 @@ Weather.js
 
 ## About
 
-There really should be a conclusive JavaScript weather library.
-Weather.js fetches data from [OpenWeatherMap](http://openweathermap.org/) (no affiliation).
-Since other providers format their output differently, currently this is
-the only source provider.
+Weather.js was designed to be a conclusive JavaScript weather library built around the [OpenWeatherMap](http://openweathermap.org/) API (no affiliation). Since other providers format their output differently, currently OpenWeatherMap is the only source provider.
 
-Weather.js is still in early development so expect changes and please
-contribute! Among the features I hope to incorporate:
+Weather.js is still in early development so expect changes and please contribute! Among the features I hope to incorporate:
 
 -   historical weather information
 -   API key usage (but there is a beta version!)
 -   more data sources
 -   more conversions!
 
+**Note:** As stated above there are plans to add more providers in the future. If you have suggestions for other providers that you'd like to see please create a new [issue](https://github.com/noazark/weather/issues) with info about the provider and a link to the provider's API.
+
+Weather.js was originally created by [Noah Smith](https://github.com/noazark) and is currently maintained by [PallasStreams](https://github.com/PallasStreams).
 
 ## Install
-
-Weather.js works in the browser and node.js. Take your pick. For the
-browser, [download the most recent version on GitHub][Weather.js]. For use in
-node, just install using NPM.
+Weather.js works in the browser and Node.js. Take your pick, For use in the browser, download the most recent version on GitHub. For use in Node, just install using your NPM package manager of choice. Currently Node has an old version of the library available but it will be updated soon.
 
 ```
 npm install -g weather.js
 ```
 
+## Testing
+To run the JavaScript unit tests run:
+```bash
+npm run test
+```
+
 ## Usage
 
-At the moment you can access the current weather conditions and the
-forecast for any city. By default it will use the closest match as
-returned by Open Weather Map.
+At the moment you can access the current weather conditions and the forcast for any city. By default it will use the closes match as returned by OpenWeatherMap.
 
 ```javascript
 // API Key methods
