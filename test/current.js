@@ -46,6 +46,13 @@ describe( "Current", function () {
     } );
 
     it( "creates `Current` weather conditions using city id", function ( done ) {
+        Weather.getCurrentByLatLong( 39.100, -94.579, function ( current ) {
+            expect( current ).to.be.a( Weather.Current );
+            done();
+        } );
+    } );
+
+    it( "creates `Current` weather conditions using coordinates", function ( done ) {
         Weather.getCurrentByCityId( cityId, function ( current ) {
             expect( current ).to.be.a( Weather.Current );
             done();
