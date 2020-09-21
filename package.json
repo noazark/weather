@@ -40,7 +40,7 @@
   },
   "scripts": {
     "bundle": "./node_modules/.bin/grunt deploy",
-    "test": "./node_modules/.bin/mocha test && ./node_modules/.bin/karma start --single-run"
+    "test": "mocha test && karma start --single-run"
   },
   "main": "./dist/weather.js"
 }

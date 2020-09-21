@@ -46,15 +46,24 @@ var tempApiKey = Weather.getApiKey();
 
 var cityId = '4393217';
 
-// Get current Weather for a given city
+// Get current weather for a given city
 Weather.getCurrent( 'Kansas City', function( current ) {
     console.log(
         [ 'Currently:', current.temperature(), 'and', current.conditions() ].join( ' ' );
     );
 } );
 
-// Get current Weather for a given city using the city id
+// Get current weather for a given city using the city id
 Weather.getCurrentByCityId( cityId, function( current ) {
+    console.log(
+        [ 'Currently:', current.temperature(), 'and', current.conditions() ].join( ' ' );
+    );
+} );
+
+// Get the current weather for a given city using the latitude and longitude
+var lat = 39.100,
+    long = -94.579;
+Weather.getCurrentByLatLong( lat, long, function( current ) {
     console.log(
         [ 'Currently:', current.temperature(), 'and', current.conditions() ].join( ' ' );
     );
