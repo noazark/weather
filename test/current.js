@@ -1,16 +1,16 @@
-isModule = ( typeof module !== "undefined" && module.exports );
+isModule = ( typeof module !== 'undefined' && module.exports );
 
 if ( isModule ) {
     expect = require( 'expect.js' );
     sinon = require( 'sinon' );
-    Weather = require( '../lib/weather' );
+    Weather = require( "../lib/weather" );
 }
 
 var current;
 var myAPIKey = 'sdaqkj210982hkd96akj21987skjggha'; // put your own apikey here. This one is invalid
 var cityId = '4393217';
 
-describe( "Current", function () {
+describe( 'Current', function () {
     before( function () {
         sinon.stub( Weather, '_getJSON', function ( url, callback ) {
             callback( '{}' );
@@ -27,8 +27,8 @@ describe( "Current", function () {
             },
             weather: [
                 {
-                    main: "Clear",
-                    description: "sky is clear"
+                    main: 'Clear',
+                    description: 'sky is clear'
                 }
             ]
         } );
@@ -38,35 +38,35 @@ describe( "Current", function () {
         Weather._getJSON.restore();
     } );
 
-    it( "creates `Current` weather conditions", function ( done ) {
+    it( 'creates `Current` weather conditions', function ( done ) {
         Weather.getCurrent( 'Kansas City', function ( current ) {
             expect( current ).to.be.a( Weather.Current );
             done();
         } );
     } );
 
-    it( "creates `Current` weather conditions using city id", function ( done ) {
+    it( 'creates `Current` weather conditions using city id', function ( done ) {
         Weather.getCurrentByLatLong( 39.100, -94.579, function ( current ) {
             expect( current ).to.be.a( Weather.Current );
             done();
         } );
     } );
 
-    it( "creates `Current` weather conditions using coordinates", function ( done ) {
+    it( 'creates `Current` weather conditions using coordinates', function ( done ) {
         Weather.getCurrentByCityId( cityId, function ( current ) {
             expect( current ).to.be.a( Weather.Current );
             done();
         } );
     } );
 
-    describe( "temperature", function () {
-        it( "temperature", function () {
+    describe( 'temperature', function () {
+        it( 'temperature', function () {
             expect( current.temperature() ).to.eql( '290.88' );
         } );
     } );
 
-    describe( "conditions", function () {
-        it( "conditions", function () {
+    describe( 'conditions', function () {
+        it( 'conditions', function () {
             expect( current.conditions() ).to.eql( 'sky is clear' );
         } );
     } );

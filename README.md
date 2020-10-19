@@ -44,6 +44,11 @@ var apiKey = '12345';
 Weather.setApiKey( apiKey );
 var tempApiKey = Weather.getApiKey();
 
+// Language methods
+var langugage = "de"; // set the language to German - libraries default language is "en" (English)
+Weather.setLanguage( langugage );
+var tempLanguage = Weather.getLanguage();
+
 var cityId = '4393217';
 
 // Get current weather for a given city
