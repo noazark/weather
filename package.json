@@ -3,7 +3,16 @@
   "version": "0.1.0",
   "description": "A conclusive JavaScript weather library.",
   "homepage": "http://weatherjs.com",
-  "author": "Noah H. Smith <noah@batteredoats.com> (http://noazark.github.com/)",
+  "contributors": [
+    {
+      "name": "Tyler Hughes",
+      "url": "https://tyler.pallas.media"
+    },
+    {
+      "name": "Noah H. Smith",
+      "url": "http://noazark.github.com"
+    }
+  ],
   "keywords": [
     "weather"
   ],
@@ -12,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noazark/weather.git"
+    "url": "https://github.com/PallasMedia/weather.git"
   },
   "bugs": {
-    "url": "https://github.com/noazark/weather/issues"
+    "url": "https://github.com/PallasMedia/weather/issues"
   },
   "license": "MIT",
   "devDependencies": {
