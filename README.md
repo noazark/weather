@@ -45,8 +45,8 @@ Weather.setApiKey( apiKey );
 var tempApiKey = Weather.getApiKey();
 
 // Language methods
-var langugage = "de"; // set the language to German - libraries default language is "en" (English)
-Weather.setLanguage( langugage );
+var language = "de"; // set the language to German - libraries default language is "en" (English)
+Weather.setLanguage( language );
 var tempLanguage = Weather.getLanguage();
 
 var cityId = '4393217';
@@ -58,7 +58,7 @@ Weather.getCurrent( 'Kansas City', function( current ) {
     );
 } );
 
-// Get current weather for a given city using the city id
+// Get the current weather for a given city using the city id
 Weather.getCurrentByCityId( cityId, function( current ) {
     console.log(
         [ 'Currently:', current.temperature(), 'and', current.conditions() ].join( ' ' );
